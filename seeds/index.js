@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const Lodging = require("../models/lodging");
+const Rental = require("../models/rental");
 const cities = require("./cities");
-const { descriptors, lodgingType } = require("./seedTemplate");
+const { descriptors, rentalType } = require("./seedTemplate");
 
-mongoose.connect("mongodb://localhost:27017/lodging-marketplace"),
+mongoose.connect("mongodb://localhost:27017/vacation-rental"),
   {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -19,15 +19,15 @@ db.once("open", () => {
 const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const seedDB = async () => {
-  await Lodging.deleteMany({});
+  await Rental.deleteMany({});
   for (let i = 0; i <= 100; i++) {
-    // 675 cities in the cities.js array
-    const randomCity = Math.floor(Math.random() * 675);
-    const lodging = new Lodging({
-      title: `${sample(descriptors)} ${sample(lodgingType)}`,
+    // 618 cities in the cities.js array
+    const randomCity = Math.floor(Math.random() * 618);
+    const rental = new Rental({
+      title: `${sample(descriptors)} ${sample(rentalType)}`,
       location: `${cities[randomCity].city}, ${cities[randomCity].iso2}`,
     });
-    await lodging.save();
+    await rental.save();
   }
 };
 

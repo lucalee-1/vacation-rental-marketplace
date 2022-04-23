@@ -29,7 +29,7 @@ module.exports.descriptors = [
     'Stunning'
 ]
 
-module.exports.lodgingType = [
+module.exports.rentalType = [
     'Flat',
     'Village',
     'Cabin',
