@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacation Rentals</title>
+    <title>Vacation Rental</title>
 </head>
 <body>
     <h2><%= rental.title %></h2> 
     <h2><%= rental.location %></h2> 
 
-    <a href="/rentals">Back To Index</a>
+    <div>
+        <a href="/rentals">Back To Index</a>
+        <a href="/rentals/<%=rental._id%>/edit">Edit</a>
+    </div>
+    <div>
+        <form action="/rentals/<%=rental._id%>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+    </div>
 </ul>
 </body>
 </html>
