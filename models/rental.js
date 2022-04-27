@@ -6,12 +6,15 @@ const RentalSchema = new Schema({
     type: String,
   },
   price: {
+    type: Number,
+  },
+  location: {
     type: String,
   },
   description: {
     type: String,
   },
-  location: {
+  image: {
     type: String,    
   },
 });

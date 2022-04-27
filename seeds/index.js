@@ -23,9 +23,14 @@ const seedDB = async () => {
   for (let i = 0; i <= 100; i++) {
     // 618 cities in the cities.js array
     const randomCity = Math.floor(Math.random() * 618);
+    const randomPrice = Math.floor(Math.random() * 100) + 10;
     const rental = new Rental({
       title: `${sample(descriptors)} ${sample(rentalType)}`,
+      price: randomPrice,
       location: `${cities[randomCity].city}, ${cities[randomCity].iso2}`,
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, repellendus laborum accusamus et suscipit voluptatem tempore? Voluptatem quisquam, ab amet cumque, itaque officia incidunt earum qui temporibus labore nobis magni! Adipisci veniam aliquid recusandae itaque maiores? Nemo at distinctio id rem, maxime incidunt alias doloribus repudiandae sequi dolorem libero minima vero? Culpa, nulla. Suscipit, commodi ipsum quidem rerum fuga error.",
+      image: "https://source.unsplash.com/collection/10574893/480x480",
     });
     await rental.save();
   }

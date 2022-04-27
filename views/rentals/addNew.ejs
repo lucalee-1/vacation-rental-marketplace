@@ -1,11 +1,46 @@
 <% layout('layouts/boilerplate') %>
+<style type="text/css">
+  textarea {
+    vertical-align: top;
+  }
+</style>
+
 <form action="/rentals" method="POST">
   <div>
-    <label for="title">Title</label>
-    <input type="text" id="title" name="rental[title]" />
-    <label for="location">Location</label>
-    <input type="text" id="location" name="rental[location]" />
-    <button>Add New Rental</button>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="rental[title]" required />
+    <label for="price">Price:</label>
+    <input
+      type="number"
+      id="price"
+      name="rental[price]"
+      min="10"
+      max="999"
+      required
+    />
   </div>
+  <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="rental[location]" required />
+    <label for="image">Image:</label>
+    <input type="text" id="image" name="rental[image]" />
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea
+      type="text"
+      id="description"
+      name="rental[description]"
+      cols="30"
+      rows="5"
+      minlength="5"
+      maxlength="200"
+      required
+    >
+ Add a description to your rental property.</textarea
+    >
+  </div>
+  <button>Add New Rental</button>
 </form>
 <a href="/rentals">Cancel</a>

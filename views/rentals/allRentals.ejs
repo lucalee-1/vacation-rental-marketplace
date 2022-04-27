@@ -1,10 +1,11 @@
 <% layout('layouts/boilerplate') %> 
 <h1>All available vacation rentals</h1>
+<div>
+  <a href="/rentals/new">Add New Rental</a>
+</div>
 <ul>
   <% for (let rental of rentals) { %>
   <li><a href="/rentals/<%=rental._id %>"><%= rental.title %></a></li>
   <% } %>
 </ul>
-<div>
-  <a href="/rentals/new">Add New Rental</a>
-</div>
+
