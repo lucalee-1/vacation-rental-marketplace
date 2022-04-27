@@ -1,21 +1,58 @@
 <% layout('layouts/boilerplate') %>
 <form action="/rentals/<%=rental._id%>?_method=PATCH" method="POST">
   <div>
-    <label for="title">Title</label>
+    <label for="title">Title:</label>
     <input
       type="text"
       id="title"
       name="rental[title]"
       value="<%=rental.title%>"
+      required
     />
-    <label for="location">Location</label>
+    <label for="price">Price:</label>
+    <input
+      type="number"
+      id="price"
+      name="rental[price]"
+      min="10"
+      max="999"
+      value="<%=rental.price%>"
+      required
+    />
+  </div>
+  <div>
+    <label for="location">Location:</label>
     <input
       type="text"
       id="location"
       name="rental[location]"
       value="<%=rental.location%>"
+      required
     />
-    <button>Update Rental</button>
+    <label for="image">Image:</label>
+    <input
+      type="text"
+      id="image"
+      name="rental[image]"
+      value="<%=rental.image%>"
+    />
   </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea
+      type="text"
+      id="description"
+      name="rental[description]"
+      cols="30"
+      rows="5"
+      minlength="5"
+      maxlength="200"
+      required
+    >
+    <%=rental.description%>
+    </textarea>
+  </div>
+  <button>Update Rental</button>
 </form>
 <a href="/rentals/<%=rental._id%>">Cancel</a>
