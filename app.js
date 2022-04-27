@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const ejsMate = require("ejs-mate")
 const methodOverride = require("method-override");
 const Rental = require("./models/rental");
 
@@ -22,6 +23,7 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
+app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -31,7 +33,7 @@ app.get("/", (req, res) => {
 
 app.get("/rentals", async (req, res) => {
   const rentals = await Rental.find({});
-  res.render("rentals/allRentals", { rentals });
+  res.render("rentals/allRentals", { rentals, title: 'All Rentals' });
 });
 
 app.post("/rentals", async (req, res) => {
@@ -41,13 +43,13 @@ app.post("/rentals", async (req, res) => {
 });
 
 app.get("/rentals/new", (req, res) => {
-  res.render("rentals/addNew");
+  res.render("rentals/addNew", {title: 'New Property'});
 });
 
 app.get("/rentals/:id", async (req, res) => {
   const { id } = req.params;
   const rental = await Rental.findById(id);
-  res.render("rentals/details", { rental });
+  res.render("rentals/details", { rental, title: `Vacation Rental: ${rental.title}` });
 });
 
 app.patch("/rentals/:id", async (req, res) => {
@@ -65,7 +67,7 @@ app.delete("/rentals/:id", async (req, res) => {
 app.get("/rentals/:id/edit", async (req, res) => {
   const { id } = req.params;
   const rental = await Rental.findById(id);
-  res.render("rentals/edit", { rental });
+  res.render("rentals/edit", { rental, title: 'Edit Property' });
 });
 
 // app.use((req, res) => {
