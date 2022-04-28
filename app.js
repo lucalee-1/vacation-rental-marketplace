@@ -1,7 +1,9 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const ejsMate = require("ejs-mate")
+const ejsMate = require("ejs-mate");
+const catchAsync = require("./helpers/catchAsync");
+const ExpressError = require("./helpers/ExpressError");
 const methodOverride = require("method-override");
 const Rental = require("./models/rental");
 
@@ -23,7 +25,7 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
-app.engine('ejs', ejsMate)
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -31,49 +33,76 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/rentals", async (req, res) => {
-  const rentals = await Rental.find({});
-  res.render("rentals/allRentals", { rentals, title: 'All Rentals' });
-});
+app.get(
+  "/rentals",
+  catchAsync(async (req, res) => {
+    const rentals = await Rental.find({});
+    res.render("rentals/allRentals", { rentals, title: "All Rentals" });
+  })
+);
 
-app.post("/rentals", async (req, res) => {
-  const rental = new Rental(req.body.rental);
-  await rental.save();
-  res.redirect(`/rentals/${rental._id}`);
-});
+app.post(
+  "/rentals",
+  catchAsync(async (req, res) => {
+    if(!req.body.rental) throw new ExpressError(400,"Invalid Rental Data")
+    const rental = new Rental(req.body.rental);
+    await rental.save();
+    res.redirect(`/rentals/${rental._id}`);
+  })
+);
 
 app.get("/rentals/new", (req, res) => {
-  res.render("rentals/addNew", {title: 'New Property'});
+  res.render("rentals/addNew", { title: "New Property" });
 });
 
-app.get("/rentals/:id", async (req, res) => {
-  const { id } = req.params;
-  const rental = await Rental.findById(id);
-  res.render("rentals/details", { rental, title: `Vacation Rental: ${rental.title}` });
+app.get(
+  "/rentals/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const rental = await Rental.findById(id);
+    res.render("rentals/details", {
+      rental,
+      title: `Vacation Rental: ${rental.title}`,
+    });
+  })
+);
+
+app.patch(
+  "/rentals/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
+    res.redirect(`/rentals/${rental._id}`);
+  })
+);
+
+app.delete(
+  "/rentals/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const rental = await Rental.findByIdAndDelete(id);
+    res.redirect("/rentals");
+  })
+);
+
+app.get(
+  "/rentals/:id/edit",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const rental = await Rental.findById(id);
+    res.render("rentals/edit", { rental, title: "Edit Property" });
+  })
+);
+
+app.all("*", (req, res, next) => {
+  next(new ExpressError(404, "Page Not Found"));
 });
 
-app.patch("/rentals/:id", async (req, res) => {
-  const { id } = req.params;
-  const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
-  res.redirect(`/rentals/${rental._id}`);
+app.use((err, req, res, next) => {
+  const { statusCode = 500, message = "Something went wrong" } = err;
+  res.status(statusCode).render('error', {statusCode, message, title: "Error"});
 });
 
-app.delete("/rentals/:id", async (req, res) => {
-  const { id } = req.params;
-  const rental = await Rental.findByIdAndDelete(id);
-  res.redirect("/rentals");
-});
-
-app.get("/rentals/:id/edit", async (req, res) => {
-  const { id } = req.params;
-  const rental = await Rental.findById(id);
-  res.render("rentals/edit", { rental, title: 'Edit Property' });
-});
-
-// app.use((req, res) => {
-//   res.status(404)
-//   res.render("notFound")
-// })
 app.listen(3000, () => {
   console.log("Connected to port 3000");
 });
