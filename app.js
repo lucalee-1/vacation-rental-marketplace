@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const catchAsync = require("./helpers/catchAsync");
 const ExpressError = require("./helpers/ExpressError");
+const { rentalSchema } = require("./validationSchemas");
 const methodOverride = require("method-override");
 const Rental = require("./models/rental");
 
@@ -29,6 +30,16 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+const validateRental = (req, res, next) => {
+  const { error } = rentalSchema.validate(req.body);
+  if (error) {
+    const msg = error.details.map((el) => el.message).join(",");
+    throw new ExpressError(400, msg);
+  } else {
+    next();
+  }
+};
+
 app.get("/", (req, res) => {
   res.render("home");
 });
@@ -43,8 +54,8 @@ app.get(
 
 app.post(
   "/rentals",
+  validateRental,
   catchAsync(async (req, res) => {
-    if(!req.body.rental) throw new ExpressError(400,"Invalid Rental Data")
     const rental = new Rental(req.body.rental);
     await rental.save();
     res.redirect(`/rentals/${rental._id}`);
@@ -69,6 +80,7 @@ app.get(
 
 app.patch(
   "/rentals/:id",
+  validateRental,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
@@ -100,7 +112,9 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong" } = err;
-  res.status(statusCode).render('error', {statusCode, message, title: "Error"});
+  res
+    .status(statusCode)
+    .render("error", { statusCode, message, title: "Error" });
 });
 
 app.listen(3000, () => {
