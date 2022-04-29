@@ -9,6 +9,8 @@ const methodOverride = require("method-override");
 const Rental = require("./models/rental");
 const Review = require("./models/review");
 
+const rentals = require("./routes/rentals")
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -31,15 +33,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const validateRental = (req, res, next) => {
-  const { error } = rentalSchema.validate(req.body);
-  if (error) {
-    const msg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, msg);
-  } else {
-    next();
-  }
-};
+
 
 const validateReview = (req, res, next) => {
   const { error } = reviewSchema.validate(req.body);
@@ -51,71 +45,11 @@ const validateReview = (req, res, next) => {
   }
 };
 
+app.use("/rentals", rentals)
+
 app.get("/", (req, res) => {
   res.render("home");
 });
-
-app.get(
-  "/rentals",
-  catchAsync(async (req, res) => {
-    const rentals = await Rental.find({});
-    res.render("rentals/allRentals", { rentals, title: "All Rentals" });
-  })
-);
-
-app.post(
-  "/rentals",
-  validateRental,
-  catchAsync(async (req, res) => {
-    const rental = new Rental(req.body.rental);
-    await rental.save();
-    res.redirect(`/rentals/${rental._id}`);
-  })
-);
-
-app.get("/rentals/new", (req, res) => {
-  res.render("rentals/addNew", { title: "New Property" });
-});
-
-app.get(
-  "/rentals/:id",
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const rental = await Rental.findById(id).populate("reviews");
-    res.render("rentals/details", {
-      rental,
-      title: `Vacation Rental: ${rental.title}`,
-    });
-  })
-);
-
-app.patch(
-  "/rentals/:id",
-  validateRental,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
-    res.redirect(`/rentals/${rental._id}`);
-  })
-);
-
-app.delete(
-  "/rentals/:id",
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const rental = await Rental.findByIdAndDelete(id);
-    res.redirect("/rentals");
-  })
-);
-
-app.get(
-  "/rentals/:id/edit",
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const rental = await Rental.findById(id);
-    res.render("rentals/edit", { rental, title: "Edit Property" });
-  })
-);
 
 app.post(
   "/rentals/:id/reviews",
@@ -148,7 +82,7 @@ app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong" } = err;
   res
     .status(statusCode)
-    .render("error", { statusCode, message, title: "Error" });
+    .render("error", { err, title: "Error" });
 });
 
 app.listen(3000, () => {

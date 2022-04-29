@@ -1,5 +1,6 @@
 <% layout('layouts/boilerplate') %>
-<h1><%=statusCode%> Error</h1>
+<h1><%=err.statusCode%> Error</h1>
 <div>
-<%=message%> 
+<p><%=err.message%></p>
+<p><%=err.stack%></p>
 </div>
