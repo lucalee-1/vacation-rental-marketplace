@@ -130,6 +130,16 @@ app.post(
   })
 );
 
+app.delete(
+  "/rentals/:id/reviews/:reviewId",
+  catchAsync(async (req, res) => {
+    const { id, reviewId } = req.params;
+    await Rental.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    await Review.findByIdAndDelete(reviewId);
+    res.redirect(`/rentals/${id}`);
+  })
+);
+
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
