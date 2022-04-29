@@ -1,17 +1,47 @@
 <% layout('layouts/boilerplate') %>
+
+<style type="text/css">
+    textarea {
+      vertical-align: top;
+    }
+  </style>
+
 <img src="<%= rental.image %> " alt="">
 <h2><%= rental.title %></h2> 
 <h2><%= rental.location %></h2> 
 <h3><%= `$${rental.price}/night`%></p>
 <p><%= rental.description %></p>
 
+<div>
+    <a href="/rentals">Back To Index</a>
+    <a href="/rentals/<%=rental._id%>/edit">Edit</a>
+</div>
+<div>
+    <form action="/rentals/<%=rental._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+</div>
+<h2><%=rental.title%> Reviews</h2>
+<% for(let review of rental.reviews) { %>
+ <div>
+     <p><%=review.rating%></p>
+     <p><%=review.body%></p>
+ </div>
+<% } %>
+    
+<h2>Leave a Review</h2>
+<div>
+<form action="/rentals/<%=rental._id%>/reviews" method="POST">
     <div>
-        <a href="/rentals">Back To Index</a>
-        <a href="/rentals/<%=rental._id%>/edit">Edit</a>
+        <label for="rating">Rating</label>
+        <input type="range" name="review[rating]" id="rating" value="5" min="0.5" max="5" step="0.5" oninput="this.nextElementSibling.value = this.value">
+        <output>5</output>
+
     </div>
     <div>
-        <form action="/rentals/<%=rental._id%>?_method=DELETE" method="POST">
-            <button>Delete</button>
-        </form>
+    <label for="body">Review</label>
+        <textarea name="review[body]" id="body" cols="30" rows="3" required></textarea>
     </div>
-</ul>
+    <button>Submit Review</button>    
+</form>
+</div>

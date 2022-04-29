@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const catchAsync = require("./helpers/catchAsync");
 const ExpressError = require("./helpers/ExpressError");
-const { rentalSchema } = require("./validationSchemas");
+const { rentalSchema, reviewSchema } = require("./validationSchemas");
 const methodOverride = require("method-override");
 const Rental = require("./models/rental");
+const Review = require("./models/review");
 
 const app = express();
 
@@ -32,6 +33,16 @@ app.set("views", path.join(__dirname, "views"));
 
 const validateRental = (req, res, next) => {
   const { error } = rentalSchema.validate(req.body);
+  if (error) {
+    const msg = error.details.map((el) => el.message).join(",");
+    throw new ExpressError(400, msg);
+  } else {
+    next();
+  }
+};
+
+const validateReview = (req, res, next) => {
+  const { error } = reviewSchema.validate(req.body);
   if (error) {
     const msg = error.details.map((el) => el.message).join(",");
     throw new ExpressError(400, msg);
@@ -70,7 +81,7 @@ app.get(
   "/rentals/:id",
   catchAsync(async (req, res) => {
     const { id } = req.params;
-    const rental = await Rental.findById(id);
+    const rental = await Rental.findById(id).populate("reviews");
     res.render("rentals/details", {
       rental,
       title: `Vacation Rental: ${rental.title}`,
@@ -103,6 +114,19 @@ app.get(
     const { id } = req.params;
     const rental = await Rental.findById(id);
     res.render("rentals/edit", { rental, title: "Edit Property" });
+  })
+);
+
+app.post(
+  "/rentals/:id/reviews",
+  validateReview,
+  catchAsync(async (req, res) => {
+    const rental = await Rental.findById(req.params.id);
+    const review = new Review(req.body.review);
+    rental.reviews.push(review);
+    await review.save();
+    await rental.save();
+    res.redirect(`/rentals/${rental._id}`);
   })
 );
 
