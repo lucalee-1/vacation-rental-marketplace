@@ -3,7 +3,7 @@ const router = express.Router();
 const catchAsync = require("../helpers/catchAsync");
 const ExpressError = require("../helpers/ExpressError");
 const Rental = require("../models/rental");
-const { rentalSchema } = require("../validationSchemas.js");
+const { rentalSchema } = require("../validationSchemas");
 
 const validateRental = (req, res, next) => {
   const { error } = rentalSchema.validate(req.body);

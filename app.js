@@ -4,11 +4,16 @@ const ejsMate = require("ejs-mate");
 const flash = require("connect-flash");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const passport = require("passport");
+const passportLocal = require("passport-local");
 const ExpressError = require("./helpers/ExpressError");
 const methodOverride = require("method-override");
 
-const rentals = require("./routes/rentals");
-const reviews = require("./routes/reviews");
+const User = require("./models/user");
+
+const rentalRoutes = require("./routes/rentals");
+const reviewRoutes = require("./routes/reviews");
+const userRoutes = require("./routes/users");
 
 mongoose.connect("mongodb://localhost:27017/vacation-rental");
 
@@ -42,14 +47,21 @@ app.use(session(sessionConfig));
 
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new passportLocal(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();
 });
 
-app.use("/rentals", rentals);
-app.use("/rentals/:id/reviews", reviews);
+app.use("/", userRoutes);
+app.use("/rentals", rentalRoutes);
+app.use("/rentals/:id/reviews", reviewRoutes);
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -64,6 +76,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err, title: "Error" });
 });
 
-app.listen(3000, () => {
-  console.log("Connected to port 3000");
+app.listen(8000, () => {
+  console.log("Connected to port 8000");
 });
