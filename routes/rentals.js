@@ -3,8 +3,7 @@ const router = express.Router();
 const catchAsync = require("../helpers/catchAsync");
 const ExpressError = require("../helpers/ExpressError");
 const Rental = require("../models/rental");
-const { rentalSchema } = require("../validationSchemas");
-
+const { rentalSchema } = require("../validationSchemas.js");
 
 const validateRental = (req, res, next) => {
   const { error } = rentalSchema.validate(req.body);
@@ -30,6 +29,7 @@ router.post(
   catchAsync(async (req, res) => {
     const rental = new Rental(req.body.rental);
     await rental.save();
+    req.flash("success", "New vacation rental added!");
     res.redirect(`/rentals/${rental._id}`);
   })
 );
@@ -41,8 +41,11 @@ router.get("/new", (req, res) => {
 router.get(
   "/:id",
   catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const rental = await Rental.findById(id).populate("reviews");
+    const rental = await Rental.findById(req.params.id).populate("reviews");
+    if (!rental) {
+        req.flash("error", "Vacation rental not found")
+        return res.redirect("/rentals")
+    }
     res.render("rentals/details", {
       rental,
       title: `Vacation Rental: ${rental.title}`,
@@ -56,6 +59,7 @@ router.patch(
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
+    req.flash("success", "Vacation rental updated!");
     res.redirect(`/rentals/${rental._id}`);
   })
 );
@@ -65,6 +69,8 @@ router.delete(
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findByIdAndDelete(id);
+    req.flash("success", "Vacation rental deleted!");
+
     res.redirect("/rentals");
   })
 );
@@ -74,6 +80,10 @@ router.get(
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findById(id);
+    if (!rental) {
+        req.flash("error", "Vacation rental not found")
+        return res.redirect("/rentals")
+    }
     res.render("rentals/edit", { rental, title: "Edit Property" });
   })
 );

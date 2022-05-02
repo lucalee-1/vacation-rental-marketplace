@@ -25,6 +25,7 @@ router.post(
     rental.reviews.push(review);
     await review.save();
     await rental.save();
+    req.flash("success", "New review added!");
     res.redirect(`/rentals/${rental._id}`);
   })
 );
@@ -35,6 +36,7 @@ router.delete(
     const { id, reviewId } = req.params;
     await Rental.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
     await Review.findByIdAndDelete(reviewId);
+    req.flash("success", "Review deleted!");
     res.redirect(`/rentals/${id}`);
   })
 );
