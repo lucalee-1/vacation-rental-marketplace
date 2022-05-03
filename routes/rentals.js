@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const catchAsync = require("../helpers/catchAsync");
 const ExpressError = require("../helpers/ExpressError");
+const { isLoggedIn } = require("../middleware/isLoggedIn");
 const Rental = require("../models/rental");
 const { rentalSchema } = require("../validationSchemas");
 
@@ -25,7 +26,7 @@ router.get(
 
 router.post(
   "/",
-  validateRental,
+  isLoggedIn,
   catchAsync(async (req, res) => {
     const rental = new Rental(req.body.rental);
     await rental.save();
@@ -34,7 +35,7 @@ router.post(
   })
 );
 
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
   res.render("rentals/addNew", { title: "New Property" });
 });
 
@@ -43,8 +44,8 @@ router.get(
   catchAsync(async (req, res) => {
     const rental = await Rental.findById(req.params.id).populate("reviews");
     if (!rental) {
-        req.flash("error", "Vacation rental not found")
-        return res.redirect("/rentals")
+      req.flash("error", "Vacation rental not found");
+      return res.redirect("/rentals");
     }
     res.render("rentals/details", {
       rental,
@@ -55,6 +56,7 @@ router.get(
 
 router.patch(
   "/:id",
+  isLoggedIn,
   validateRental,
   catchAsync(async (req, res) => {
     const { id } = req.params;
@@ -66,6 +68,7 @@ router.patch(
 
 router.delete(
   "/:id",
+  isLoggedIn,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findByIdAndDelete(id);
@@ -77,12 +80,13 @@ router.delete(
 
 router.get(
   "/:id/edit",
+  isLoggedIn,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findById(id);
     if (!rental) {
-        req.flash("error", "Vacation rental not found")
-        return res.redirect("/rentals")
+      req.flash("error", "Vacation rental not found");
+      return res.redirect("/rentals");
     }
     res.render("rentals/edit", { rental, title: "Edit Property" });
   })
