@@ -29,6 +29,7 @@ router.post(
   isLoggedIn,
   catchAsync(async (req, res) => {
     const rental = new Rental(req.body.rental);
+    rental.host = req.user._id
     await rental.save();
     req.flash("success", "New vacation rental added!");
     res.redirect(`/rentals/${rental._id}`);
@@ -42,7 +43,9 @@ router.get("/new", isLoggedIn, (req, res) => {
 router.get(
   "/:id",
   catchAsync(async (req, res) => {
-    const rental = await Rental.findById(req.params.id).populate("reviews");
+    const rental = await Rental.findById(req.params.id)
+      .populate("reviews")
+      .populate("host");
     if (!rental) {
       req.flash("error", "Vacation rental not found");
       return res.redirect("/rentals");

@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const Review = require("./review")
+const Review = require("./review");
 const Schema = mongoose.Schema;
 
 const RentalSchema = new Schema({
   title: {
     type: String,
-    required: [true, 'Rental must have a name']
+    required: [true, "Rental must have a name"],
   },
   price: {
     type: Number,
@@ -17,22 +17,28 @@ const RentalSchema = new Schema({
     type: String,
   },
   image: {
-    type: String,    
+    type: String,
   },
-  reviews: [{
+  host: {
     type: Schema.Types.ObjectId,
-    ref: "Review"
-  }]
+    ref: "User",
+  },
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
 });
 
-RentalSchema.post('findOneAndDelete', async function (doc) {
- if(doc){
-   await Review.deleteMany({
-     _id: {
-       $in: doc.reviews
-     }
-   })
- }
-})
+RentalSchema.post("findOneAndDelete", async function (doc) {
+  if (doc) {
+    await Review.deleteMany({
+      _id: {
+        $in: doc.reviews,
+      },
+    });
+  }
+});
 
 module.exports = mongoose.model("Rental", RentalSchema);

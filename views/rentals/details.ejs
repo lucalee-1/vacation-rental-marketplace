@@ -9,6 +9,7 @@
 <img src="<%= rental.image %> " alt="">
 <h2><%= rental.title %></h2> 
 <h2><%= rental.location %></h2> 
+<h3>Hosted by: <%= rental.host.username %></h2> 
 <h3><%= `$${rental.price}/night`%></p>
 <p><%= rental.description %></p>
 
