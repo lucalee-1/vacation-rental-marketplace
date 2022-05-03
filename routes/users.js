@@ -21,7 +21,9 @@ router.post(
           "success",
           `Welcome to Vacation Rental Marketplace, ${user.username}!`
         );
-        res.redirect("/rentals");
+        const redirectUrl = req.session.returnTo || "/rentals";
+        delete req.session.returnTo;
+        res.redirect(redirectUrl);
       });
     } catch (e) {
       req.flash("error", e.message);
@@ -42,7 +44,9 @@ router.post(
   }),
   (req, res) => {
     req.flash("success", `Welcome back, ${req.body.username}!`);
-    res.redirect("/rentals");
+    const redirectUrl = req.session.returnTo || "/rentals";
+    delete req.session.returnTo;
+    res.redirect(redirectUrl);
   }
 );
 
