@@ -1,8 +1,21 @@
 <% layout('layouts/boilerplate') %> 
+<% if (currentUser) { %>
+ <p>Logged In as: <%=currentUser.username%></p>
+<% } %>
 <h1>All available vacation rentals</h1>
 <div>
   <a href="/rentals/new">Add New Rental</a>
 </div>
+<% if (!currentUser) { %>
+  <div>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+  </div> 
+<% }else{ %>
+<div>
+<form action="/logout" method="POST"><button>Log Out</button></form>
+</div>
+<% } %> 
 <ul>
   <% for (let rental of rentals) { %>
   <li><a href="/rentals/<%=rental._id %>"><%= rental.title %></a></li>
