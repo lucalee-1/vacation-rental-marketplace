@@ -19,7 +19,7 @@ const RentalSchema = new Schema({
   image: {
     type: String,
   },
-  host: {
+  owner: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },

@@ -9,19 +9,20 @@
 <img src="<%= rental.image %> " alt="">
 <h2><%= rental.title %></h2> 
 <h2><%= rental.location %></h2> 
-<h3>Hosted by: <%= rental.host.username %></h2> 
+<h3>Hosted by: <%= rental.owner.username %></h2> 
 <h3><%= `$${rental.price}/night`%></p>
 <p><%= rental.description %></p>
-
 <div>
     <a href="/rentals">Back To Index</a>
-    <a href="/rentals/<%=rental._id%>/edit">Edit</a>
 </div>
-<div>
+<% if (currentUser &&rental.owner.equals(currentUser._id)) { %>
+ <div>
+    <a href="/rentals/<%=rental._id%>/edit"><button>Edit</button></a>
     <form action="/rentals/<%=rental._id%>?_method=DELETE" method="POST">
         <button>Delete</button>
     </form>
 </div>
+<% } %>
 <h2><%=rental.title%> Reviews</h2>
 <% for(let review of rental.reviews) { %>
  <div>
