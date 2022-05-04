@@ -10,7 +10,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "vacantion-rental-marketplace",
+    folder: "vacantion-rental",
     allowedFormats: ["jpeg", "png", "jpg"],
   },
 });

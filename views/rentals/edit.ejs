@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate') %>
-<form action="/rentals/<%=rental._id%>?_method=PATCH" method="POST">
+<form action="/rentals/<%=rental._id%>?_method=PATCH" method="POST" enctype="multipart/form-data">
   <div>
     <label for="title">Title:</label>
     <input
@@ -29,12 +29,12 @@
       value="<%=rental.location%>"
       required
     />
-    <label for="image">Image:</label>
+    <label for="image">Add Images:</label>
     <input
-      type="text"
+      type="file"
       id="image"
-      name="rental[image]"
-      value="<%=rental.image%>"
+      name="image"
+      multiple
     />
   </div>
 

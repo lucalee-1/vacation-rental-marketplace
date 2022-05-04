@@ -22,7 +22,12 @@ router.get("/new", isLoggedIn, rentals.renderAddNewForm);
 router
   .route("/:id")
   .get(catchAsync(rentals.showRentalDetails))
-  .patch(isLoggedIn, validateRental, catchAsync(rentals.editRental))
+  .patch(
+    isLoggedIn,
+    upload.array("image"),
+    validateRental,
+    catchAsync(rentals.editRental)
+  )
   .delete(isLoggedIn, isOwner, catchAsync(rentals.deleteRental));
 
 router.get(

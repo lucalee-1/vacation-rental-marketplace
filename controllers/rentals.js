@@ -45,6 +45,9 @@ module.exports.renderEditForm = async (req, res) => {
 module.exports.editRental = async (req, res) => {
   const { id } = req.params;
   const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
+  const imgs = req.files.map((f) => ({ url: f.path, filename: f.filename }));
+  rental.images.push(...imgs);
+  rental.save();
   req.flash("success", "Vacation rental updated!");
   res.redirect(`/rentals/${rental._id}`);
 };

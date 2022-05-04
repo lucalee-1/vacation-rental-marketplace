@@ -30,8 +30,17 @@ const seedDB = async () => {
       location: `${cities[randomCity].city}, ${cities[randomCity].iso2}`,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, repellendus laborum accusamus et suscipit voluptatem tempore? Voluptatem quisquam, ab amet cumque, itaque officia incidunt earum qui temporibus labore nobis magni! Adipisci veniam aliquid recusandae itaque maiores? Nemo at distinctio id rem, maxime incidunt alias doloribus repudiandae sequi dolorem libero minima vero? Culpa, nulla. Suscipit, commodi ipsum quidem rerum fuga error.",
-      image: "https://source.unsplash.com/collection/10574893/480x480",
-      owner: "62711eb0c186d9c27a413308"
+      images: [
+        {
+          url: "https://source.unsplash.com/collection/10574893/480x480",
+          filename: "vacantion-rental/sfewfwfefeefwfe",
+        },
+        {
+          url: "https://source.unsplash.com/collection/10574893/480x480",
+          filename: "vacantion-rental/sfewfd3wfefeefwfe",
+        },
+      ],
+      owner: "62711eb0c186d9c27a413308",
     });
     await rental.save();
   }
