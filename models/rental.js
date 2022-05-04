@@ -1,3 +1,4 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 const Review = require("./review");
 const Schema = mongoose.Schema;
@@ -16,9 +17,12 @@ const RentalSchema = new Schema({
   description: {
     type: String,
   },
-  image: {
-    type: String,
-  },
+  images: [
+    {
+      url: String,
+      fileName: String,
+    },
+  ],
   owner: {
     type: Schema.Types.ObjectId,
     ref: "User",

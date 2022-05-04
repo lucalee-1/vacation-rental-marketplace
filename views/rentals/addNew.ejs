@@ -6,7 +6,7 @@
   }
 </style>
 
-<form action="/rentals" method="POST">
+<form action="/rentals" method="POST" enctype="multipart/form-data">
   <div>
     <label for="title">Title:</label>
     <input type="text" id="title" name="rental[title]" required />
@@ -23,10 +23,8 @@
   <div>
     <label for="location">Location:</label>
     <input type="text" id="location" name="rental[location]" required />
-    <label for="image">Image:</label>
-    <input type="text" id="image" name="rental[image]" />
   </div>
-
+  <input type="file" name="image" multiple>
   <div>
     <label for="description">Description:</label>
     <textarea

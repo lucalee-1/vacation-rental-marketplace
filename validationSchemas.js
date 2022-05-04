@@ -5,7 +5,7 @@ module.exports.rentalSchema = Joi.object({
     title: Joi.string().required(),
     price: Joi.number().required().min(10).max(9999),
     location: Joi.string().required(),
-    image: Joi.string().required(),
+    // image: Joi.string().required(),
     description: Joi.string().required(),
   }).required()
 });
