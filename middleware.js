@@ -1,5 +1,6 @@
 const ExpressError = require("./helpers/ExpressError");
 const Rental = require("./models/rental");
+const Review = require("./models/review");
 const { rentalSchema, reviewSchema } = require("./validationSchemas");
 
 module.exports.isLoggedIn = (req, res, next) => {
@@ -15,6 +16,16 @@ module.exports.isOwner = async (req, res, next) => {
   const { id } = req.params;
   const rental = await Rental.findById(id);
   if (!rental.owner.equals(req.user._id)) {
+    req.flash("error", "You do not have permission to do that!");
+    return res.redirect(`/rentals/${id}`);
+  }
+  next();
+};
+
+module.exports.isReviewOwner = async (req, res, next) => {
+  const { id, reviewId } = req.params;
+  const review = await Review.findById(reviewId);
+  if (!review.owner.equals(req.user._id)) {
     req.flash("error", "You do not have permission to do that!");
     return res.redirect(`/rentals/${id}`);
   }

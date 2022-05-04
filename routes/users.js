@@ -33,7 +33,7 @@ router.post(
 );
 
 router.get("/login", (req, res) => {
-  res.render("users/login", { title: "Log In" });
+  res.render("users/login", { title: "Log In" });  
 });
 
 router.post(

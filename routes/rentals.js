@@ -17,7 +17,7 @@ router.post(
   isLoggedIn,
   catchAsync(async (req, res) => {
     const rental = new Rental(req.body.rental);
-    rental.owner = req.user._id
+    rental.owner = req.user._id;
     await rental.save();
     req.flash("success", "New vacation rental added!");
     res.redirect(`/rentals/${rental._id}`);
@@ -32,7 +32,7 @@ router.get(
   "/:id",
   catchAsync(async (req, res) => {
     const rental = await Rental.findById(req.params.id)
-      .populate("reviews")
+      .populate({ path: "reviews", populate: { path: "owner" } })
       .populate("owner");
     if (!rental) {
       req.flash("error", "Vacation rental not found");
@@ -50,7 +50,7 @@ router.patch(
   isLoggedIn,
   validateRental,
   catchAsync(async (req, res) => {
-    const { id } = req.params;  
+    const { id } = req.params;
     const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
     req.flash("success", "Vacation rental updated!");
     res.redirect(`/rentals/${rental._id}`);
@@ -59,7 +59,8 @@ router.patch(
 
 router.delete(
   "/:id",
-  isLoggedIn, isOwner,
+  isLoggedIn,
+  isOwner,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findByIdAndDelete(id);
@@ -71,14 +72,15 @@ router.delete(
 
 router.get(
   "/:id/edit",
-  isLoggedIn, isOwner,
+  isLoggedIn,
+  isOwner,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const rental = await Rental.findById(id);
     if (!rental) {
       req.flash("error", "Vacation rental not found");
       return res.redirect("/rentals");
-    }   
+    }
     res.render("rentals/edit", { rental, title: "Edit Property" });
   })
 );
