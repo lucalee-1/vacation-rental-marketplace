@@ -2,39 +2,14 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const catchAsync = require("../helpers/catchAsync");
+const users = require("../controllers/users");
 const User = require("../models/user");
 
-router.get("/register", (req, res) => {
-  res.render("users/register", { title: "New user registration" });
-});
+router.get("/register", users.renderRegisterForm);
 
-router.post(
-  "/register",
-  catchAsync(async (req, res, next) => {
-    try {
-      const { email, username, password } = req.body;
-      const user = new User({ email, username });
-      const registeredUser = await User.register(user, password);
-      req.login(registeredUser, (err) => {
-        if (err) return next(err);
-        req.flash(
-          "success",
-          `Welcome to Vacation Rental Marketplace, ${user.username}!`
-        );
-        const redirectUrl = req.session.returnTo || "/rentals";
-        delete req.session.returnTo;
-        res.redirect(redirectUrl);
-      });
-    } catch (e) {
-      req.flash("error", e.message);
-      res.redirect("/register");
-    }
-  })
-);
+router.post("/register", catchAsync(users.registerNewUser));
 
-router.get("/login", (req, res) => {
-  res.render("users/login", { title: "Log In" });  
-});
+router.get("/login", users.renderLoginForm);
 
 router.post(
   "/login",
@@ -42,18 +17,9 @@ router.post(
     failureFlash: true,
     failureRedirect: "/login",
   }),
-  (req, res) => {
-    req.flash("success", `Welcome back, ${req.body.username}!`);
-    const redirectUrl = req.session.returnTo || "/rentals";
-    delete req.session.returnTo;
-    res.redirect(redirectUrl);
-  }
+  users.loginRedirect
 );
 
-router.post("/logout", (req, res) => {
-  req.logout();
-  req.flash("success", "Logged Out.");
-  res.redirect("/rentals");
-});
+router.post("/logout", users.logout);
 
 module.exports = router;
