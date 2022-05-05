@@ -26,7 +26,7 @@ router
     isLoggedIn,
     upload.array("image"),
     validateRental,
-    catchAsync(rentals.editRental)
+    catchAsync(rentals.updateRental)
   )
   .delete(isLoggedIn, isOwner, catchAsync(rentals.deleteRental));
 
@@ -34,7 +34,7 @@ router.get(
   "/:id/edit",
   isLoggedIn,
   isOwner,
-  catchAsync(rentals.renderEditForm)
+  catchAsync(rentals.renderUpdateForm)
 );
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const Rental = require("../models/rental");
+const { cloudinary } = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
   const rentals = await Rental.find({});
@@ -11,7 +12,7 @@ module.exports.renderAddNewForm = (req, res) => {
 
 module.exports.addNewRental = async (req, res) => {
   const rental = new Rental(req.body.rental);
-  rental.images = req.files.map(f => ({ url: f.path, fileName: f.fileName }));
+  rental.images = req.files.map((f) => ({ url: f.path, fileName: f.filename }));
   rental.owner = req.user._id;
   await rental.save();
   req.flash("success", "New vacation rental added!");
@@ -32,7 +33,7 @@ module.exports.showRentalDetails = async (req, res) => {
   });
 };
 
-module.exports.renderEditForm = async (req, res) => {
+module.exports.renderUpdateForm = async (req, res) => {
   const { id } = req.params;
   const rental = await Rental.findById(id);
   if (!rental) {
@@ -42,13 +43,21 @@ module.exports.renderEditForm = async (req, res) => {
   res.render("rentals/edit", { rental, title: "Edit Property" });
 };
 
-module.exports.editRental = async (req, res) => {
+module.exports.updateRental = async (req, res) => {
   const { id } = req.params;
-  console.log(req.body)
+  console.log(req.body);
   const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
   const imgs = req.files.map((f) => ({ url: f.path, filename: f.filename }));
   rental.images.push(...imgs);
   rental.save();
+  if (req.body.deleteImages) {
+    for (let fileName of req.body.deleteImages) {
+      await cloudinary.uploader.destroy(fileName);
+    }
+    await rental.updateOne({
+      $pull: { images: { fileName: { $in: req.body.deleteImages } } },
+    });
+  }
   req.flash("success", "Vacation rental updated!");
   res.redirect(`/rentals/${rental._id}`);
 };
