@@ -64,7 +64,7 @@
   </div>
   <div>
     <% rental.images.forEach(function(img, i) { %>
-    <img src="<%=img.url%> " alt="" />
+    <img src="<%=img.thumbnail%> " alt="" />
     <input type="checkbox" name="deleteImages[]" id="image-<%=i%>" value="<%=img.fileName%>">
     <label for="image<%=i%>">Delete?</label>
     <% }) %>
