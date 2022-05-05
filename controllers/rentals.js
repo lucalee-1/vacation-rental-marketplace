@@ -11,7 +11,7 @@ module.exports.renderAddNewForm = (req, res) => {
 
 module.exports.addNewRental = async (req, res) => {
   const rental = new Rental(req.body.rental);
-  rental.images = req.files.map((f) => ({ url: f.path, filename: f.filename }));
+  rental.images = req.files.map(f => ({ url: f.path, fileName: f.fileName }));
   rental.owner = req.user._id;
   await rental.save();
   req.flash("success", "New vacation rental added!");
@@ -44,6 +44,7 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.editRental = async (req, res) => {
   const { id } = req.params;
+  console.log(req.body)
   const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
   const imgs = req.files.map((f) => ({ url: f.path, filename: f.filename }));
   rental.images.push(...imgs);

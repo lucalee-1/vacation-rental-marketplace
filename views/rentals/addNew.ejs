@@ -23,9 +23,6 @@
   <div>
     <label for="location">Location:</label>
     <input type="text" id="location" name="rental[location]" required />
-  </div>
-  <input type="file" name="image" multiple>
-  <div>
     <label for="description">Description:</label>
     <textarea
       type="text"
@@ -40,6 +37,10 @@
  Add a description to your rental property.</textarea
     >
   </div>
+</div>
+<label for="image">Add Images:</label>
+<input type="file" name="image" id="image" multiple accept=".png, .jpg, .jpeg" />
+<div>
   <button>Add New Rental</button>
 </form>
 <a href="/rentals">Cancel</a>

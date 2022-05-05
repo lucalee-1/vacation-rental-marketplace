@@ -33,11 +33,11 @@ const seedDB = async () => {
       images: [
         {
           url: "https://source.unsplash.com/collection/10574893/480x480",
-          filename: "vacantion-rental/sfewfwfefeefwfe",
+          fileName: "vacantion-rental/sfewfwfefeefwfe",
         },
         {
           url: "https://source.unsplash.com/collection/10574893/480x480",
-          filename: "vacantion-rental/sfewfd3wfefeefwfe",
+          fileName: "vacantion-rental/sfewfd3wfefeefwfe",
         },
       ],
       owner: "62711eb0c186d9c27a413308",

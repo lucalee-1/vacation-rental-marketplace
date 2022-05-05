@@ -20,7 +20,7 @@ const RentalSchema = new Schema({
   images: [
     {
       url: String,
-      fileName: String,
+      fileName: String
     },
   ],
   owner: {

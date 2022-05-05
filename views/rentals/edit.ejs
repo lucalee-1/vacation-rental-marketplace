@@ -1,5 +1,16 @@
 <% layout('layouts/boilerplate') %>
-<form action="/rentals/<%=rental._id%>?_method=PATCH" method="POST" enctype="multipart/form-data">
+
+<style type="text/css">
+  textarea {
+    vertical-align: top;
+  }
+</style>
+
+<form
+  action="/rentals/<%=rental._id%>?_method=PATCH"
+  method="POST"
+  enctype="multipart/form-data"
+>
   <div>
     <label for="title">Title:</label>
     <input
@@ -29,13 +40,6 @@
       value="<%=rental.location%>"
       required
     />
-    <label for="image">Add Images:</label>
-    <input
-      type="file"
-      id="image"
-      name="image"
-      multiple
-    />
   </div>
 
   <div>
@@ -49,9 +53,21 @@
       minlength="5"
       maxlength="200"
       required
+      accept=".png, .jpg, .jpeg"
     >
     <%=rental.description%>
     </textarea>
+  </div>
+  <div>
+    <label for="image">Add More Images:</label>
+    <input type="file" id="image" name="image" multiple />
+  </div>
+  <div>
+    <% rental.images.forEach(function(img, i) { %>
+    <img src="<%=img.url%> " alt="" />
+    <input type="checkbox" name="deleteImages[]" id="image-<%=i%>" value="<%=img.fileName%>">
+    <label for="image<%=i%>">Delete?</label>
+    <% }) %>
   </div>
   <button>Update Rental</button>
 </form>
