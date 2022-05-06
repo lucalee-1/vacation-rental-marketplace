@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const Review = require("./review");
 const Schema = mongoose.Schema;
 
+const opts = { toJSON: { virtuals: true } };
+
 const ImageSchema = new Schema({
   url: String,
   fileName: String,
@@ -15,42 +17,51 @@ ImageSchema.virtual("detailsPage").get(function () {
   return this.url.replace("/upload", "/upload/c_fill,h_480,w_480");
 });
 
-const RentalSchema = new Schema({
-  title: {
-    type: String,
-    required: [true, "Rental must have a name"],
-  },
-  price: {
-    type: Number,
-  },
-  location: {
-    type: String,
-  },
-  geometry: {
-    type: {
+const RentalSchema = new Schema(
+  {
+    title: {
       type: String,
-      enum: ["Point"],
-      required: true,
+      required: [true, "Rental must have a name"],
     },
-    coordinates: {
-      type: [Number],
-      required: true,
+    price: {
+      type: Number,
     },
-  },
-  description: {
-    type: String,
-  },
-  images: [ImageSchema],
-  owner: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-  reviews: [
-    {
+    location: {
+      type: String,
+    },
+    geometry: {
+      type: {
+        type: String,
+        enum: ["Point"],
+        required: true,
+      },
+      coordinates: {
+        type: [Number],
+        required: true,
+      },
+    },
+    description: {
+      type: String,
+    },
+    images: [ImageSchema],
+    owner: {
       type: Schema.Types.ObjectId,
-      ref: "Review",
+      ref: "User",
     },
-  ],
+    reviews: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
+  },
+  opts
+);
+
+RentalSchema.virtual("properties.popUpMarkup").get(function () {
+  return `<strong><a href="/rentals/${this._id}">${this.title}</a><strong>
+  <p>${this.location}</p>
+  <p>${this.description.substring(0,40)}...</p>`
 });
 
 RentalSchema.post("findOneAndDelete", async function (doc) {

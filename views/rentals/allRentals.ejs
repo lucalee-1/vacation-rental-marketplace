@@ -1,24 +1,35 @@
-<% layout('layouts/boilerplate') %> 
-<% if (currentUser) { %>
- <p>Logged In as: <%=currentUser.username%></p>
+<% layout('layouts/boilerplate') %> <% if (currentUser) { %>
+<p>Logged In as: <%=currentUser.username%></p>
 <% } %>
+<div id="map" style="width: 100%; height: 500px"></div>
 <h1>All available vacation rentals</h1>
 <div>
   <a href="/rentals/new">Add New Rental</a>
 </div>
 <% if (!currentUser) { %>
-  <div>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-  </div> 
+<div>
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+</div>
 <% }else{ %>
 <div>
-<form action="/logout" method="POST"><button>Log Out</button></form>
+  <form action="/logout" method="POST"><button>Log Out</button></form>
 </div>
-<% } %> 
+<% } %>
 <ul>
   <% for (let rental of rentals) { %>
   <li><a href="/rentals/<%=rental._id %>"><%= rental.title %></a></li>
   <% } %>
 </ul>
 
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script>
+  const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
+  const rentals = {features: <%-JSON.stringify(rentals)%>}
+</script>
+
+<script src="/javascripts/clusterMap.js"></script>

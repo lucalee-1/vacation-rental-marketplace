@@ -4,6 +4,11 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary");
 
+// To do:
+// Add image validation, 
+// Add location validation, add geometry updating when editing location
+
+
 module.exports.index = async (req, res) => {
   const rentals = await Rental.find({});
   res.render("rentals/allRentals", { rentals, title: "All Rentals" });

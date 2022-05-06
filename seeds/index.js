@@ -21,14 +21,14 @@ const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const seedDB = async () => {
   await Rental.deleteMany({});
   for (let i = 0; i <= 100; i++) {
-    // 618 cities in the cities.js array
-    const randomCity = Math.floor(Math.random() * 618);
+    // 600 cities in the cities.js array
+    const randomCity = Math.floor(Math.random() * 600);
     const randomPrice = Math.floor(Math.random() * 120) + 10;
     const rental = new Rental({
       title: `${sample(descriptors)} ${sample(rentalType)}`,
       price: randomPrice,
-      location: `${cities[randomCity].city}, ${cities[randomCity].iso2}`,
-      geometry: { type: "Point", coordinates: [129.04028, 35.1] },
+      location: `${cities[randomCity].city}, ${cities[randomCity].country}`,
+      geometry: { type: "Point", coordinates: [cities[randomCity].lng, cities[randomCity].lat] },
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, repellendus laborum accusamus et suscipit voluptatem tempore? Voluptatem quisquam, ab amet cumque, itaque officia incidunt earum qui temporibus labore nobis magni! Adipisci veniam aliquid recusandae itaque maiores? Nemo at distinctio id rem, maxime incidunt alias doloribus repudiandae sequi dolorem libero minima vero? Culpa, nulla. Suscipit, commodi ipsum quidem rerum fuga error.",
       images: [
