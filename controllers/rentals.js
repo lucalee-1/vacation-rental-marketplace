@@ -1,4 +1,7 @@
 const Rental = require("../models/rental");
+const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
@@ -11,10 +14,15 @@ module.exports.renderAddNewForm = (req, res) => {
 };
 
 module.exports.addNewRental = async (req, res) => {
+  const geoData = await geocoder
+    .forwardGeocode({ query: req.body.rental.location, limit: 1 })
+    .send();
   const rental = new Rental(req.body.rental);
+  rental.geometry = geoData.body.features[0].geometry;
   rental.images = req.files.map((f) => ({ url: f.path, fileName: f.filename }));
   rental.owner = req.user._id;
   await rental.save();
+  console.log(rental);
   req.flash("success", "New vacation rental added!");
   res.redirect(`/rentals/${rental._id}`);
 };
