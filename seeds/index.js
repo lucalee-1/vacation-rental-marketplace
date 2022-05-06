@@ -28,6 +28,7 @@ const seedDB = async () => {
       title: `${sample(descriptors)} ${sample(rentalType)}`,
       price: randomPrice,
       location: `${cities[randomCity].city}, ${cities[randomCity].iso2}`,
+      geometry: { type: "Point", coordinates: [129.04028, 35.1] },
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, repellendus laborum accusamus et suscipit voluptatem tempore? Voluptatem quisquam, ab amet cumque, itaque officia incidunt earum qui temporibus labore nobis magni! Adipisci veniam aliquid recusandae itaque maiores? Nemo at distinctio id rem, maxime incidunt alias doloribus repudiandae sequi dolorem libero minima vero? Culpa, nulla. Suscipit, commodi ipsum quidem rerum fuga error.",
       images: [
