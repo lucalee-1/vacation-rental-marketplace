@@ -5,9 +5,10 @@ const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary");
 
 // To do:
-// Add image validation, 
+// Add image validation,
 // Add location validation, add geometry updating when editing location
-
+// Add autocomplete location when adding new
+// Add default image, when no image
 
 module.exports.index = async (req, res) => {
   const rentals = await Rental.find({});
@@ -24,7 +25,19 @@ module.exports.addNewRental = async (req, res) => {
     .send();
   const rental = new Rental(req.body.rental);
   rental.geometry = geoData.body.features[0].geometry;
-  rental.images = req.files.map((f) => ({ url: f.path, fileName: f.filename }));
+  if (typeof req.files !== "undefined" && req.files.length > 0) {
+    rental.images = req.files.map((f) => ({
+      url: f.path,
+      fileName: f.filename,
+    }));
+  } else {
+    rental.images = [
+      {
+        url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652430160/vacantion-rental/f2tyqfurlfxqdmimf3jo.jpg",
+        fileName: "vacantion-rental/f2tyqfurlfxqdmimf3jo",
+      },
+    ];
+  }
   rental.owner = req.user._id;
   await rental.save();
   console.log(rental);

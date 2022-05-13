@@ -1,74 +1,69 @@
 <% layout('layouts/boilerplate') %>
 
-<style type="text/css">
-  textarea {
-    vertical-align: top;
-  }
-</style>
-
-<form
-  action="/rentals/<%=rental._id%>?_method=PATCH"
-  method="POST"
-  enctype="multipart/form-data"
->
-  <div>
-    <label for="title">Title:</label>
-    <input
-      type="text"
-      id="title"
-      name="rental[title]"
-      value="<%=rental.title%>"
-      required
-    />
-    <label for="price">Price:</label>
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center">New Rental</h1>
+<div class="col-md-4 offset-md-4">
+<form class="needs-validation" action="/rentals/<%=rental._id%>?_method=PATCH" method="POST" enctype="multipart/form-data" novalidate>
+  <div class="mb-3 form-inline">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="rental[title]" value="<%=rental.title%>" required/>
+    <div class="invalid-feedback">
+      Please add a title.
+    </div>
+  </div>
+  <div class="mb-3 form-inline">
+    <label for="price" class="form-label">Price</label>
+    <div class="input-group">
+    <span class="input-group-text">$</span>
     <input
       type="number"
+      class="form-control"
       id="price"
       name="rental[price]"
+      placeholder="0.00"
       min="10"
-      max="999"
+      max="9999"
       value="<%=rental.price%>"
       required
     />
+    <div class="invalid-feedback">
+      Please provide a price higher than $10.
+    </div>
   </div>
-  <div>
-    <label for="location">Location:</label>
-    <input
-      type="text"
-      id="location"
-      name="rental[location]"
-      value="<%=rental.location%>"
-      required
-    />
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input type="text" class="form-control" id="location" name="rental[location]" value="<%=rental.location%>" required />
+    <div class="invalid-feedback">
+      Please add a location.
+    </div>
   </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Add More Image(s)</label>
+    <input class="form-control" type="file" id="image" name="image" multiple accept=".png, .jpg, .jpeg" multiple>
+  </div>  
 
-  <div>
-    <label for="description">Description:</label>
-    <textarea
-      type="text"
-      id="description"
-      name="rental[description]"
-      cols="30"
-      rows="5"
-      minlength="5"
-      maxlength="200"
-      required
-      accept=".png, .jpg, .jpeg"
-    >
-    <%=rental.description%>
-    </textarea>
+ <div class="mb-3">
+  <label class="form-label" for="description">Description</label>
+  <textarea class="form-control" type="text" id="description" name="rental[description]" required><%=rental.description%></textarea>  
+  <div class="invalid-feedback">
+    Please add a description.
   </div>
-  <div>
-    <label for="image">Add More Images:</label>
-    <input type="file" id="image" name="image" multiple />
+</div> 
+<div class="mb-3">
+  <% rental.images.forEach(function(img, i) {  %>
+  <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
+  <div class="form-check-inline">
+      <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.fileName%>">
   </div>
-  <div>
-    <% rental.images.forEach(function(img, i) { %>
-    <img src="<%=img.thumbnail%> " alt="" />
-    <input type="checkbox" name="deleteImages[]" id="image-<%=i%>" value="<%=img.fileName%>">
-    <label for="image<%=i%>">Delete?</label>
-    <% }) %>
-  </div>
-  <button>Update Rental</button>
+  <label for="image-<%=i%>">Delete?</label>
+  <% })%>  
+  <div class="mt-2">
+<button type="submit" class="btn btn-outline-info">Update Rental</button>
+</div>
 </form>
-<a href="/rentals/<%=rental._id%>">Cancel</a>
+</div>
+<a class="btn btn-outline-danger btn-sm" href="/rentals/<%=rental._id%>">Go Back</a>
+</div>
+
+<script src="/javascripts/bootstrapValidation.js"></script>

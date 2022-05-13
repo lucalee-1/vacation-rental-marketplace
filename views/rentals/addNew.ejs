@@ -1,46 +1,61 @@
 <% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center">New Rental</h1>
+<div class="col-md-4 offset-md-4">
+<form class="needs-validation" action="/rentals" method="POST" enctype="multipart/form-data" novalidate>
+  <div class="mb-3 form-inline">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="rental[title]" required/>
+    <div class="invalid-feedback">
+      Please add a title.
+    </div>
 
-<style type="text/css">
-  textarea {
-    vertical-align: top;
-  }
-</style>
-
-<form action="/rentals" method="POST" enctype="multipart/form-data">
-  <div>
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="rental[title]" required />
-    <label for="price">Price:</label>
+  </div>
+  <div class="mb-3 form-inline">
+    <label for="price" class="form-label">Price</label>
+    <div class="input-group">
+    <span class="input-group-text">$</span>
     <input
       type="number"
+      class="form-control"
       id="price"
       name="rental[price]"
+      placeholder="0.00"
       min="10"
       max="9999"
       required
     />
+    <div class="invalid-feedback">
+      Please provide a price higher than $10.
+    </div>
   </div>
-  <div>
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="rental[location]" required />
-    <label for="description">Description:</label>
-    <textarea
-      type="text"
-      id="description"
-      name="rental[description]"
-      cols="30"
-      rows="5"
-      minlength="5"
-      maxlength="999"
-      required
-    >
- Add a description to your rental property.</textarea
-    >
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input type="text" class="form-control" id="location" name="rental[location]" required />
+    <div class="invalid-feedback">
+      Please add a location.
+    </div>
   </div>
-</div>
-<label for="image">Add Images:</label>
-<input type="file" name="image" id="image" multiple accept=".png, .jpg, .jpeg" />
-<div>
-  <button>Add New Rental</button>
+  <div class="mb-3">
+    <label for="image" class="form-label">Add Image(s)</label>
+    <input class="form-control" type="file" id="image" name="image" multiple accept=".png, .jpg, .jpeg" multiple>
+  </div>
+  
+
+ <div class="mb-3">
+  <label class="form-label" for="description">Description</label>
+  <textarea class="form-control" type="text" id="description" name="rental[description]"
+      required></textarea>  
+  <div class="invalid-feedback">
+    Please add a description.
+  </div>
+</div> 
+
+  <button type="submit" class="btn btn-outline-info">Submit</button>
 </form>
-<a href="/rentals">Cancel</a>
+
+</div>
+<a class="btn btn-outline-danger btn-sm" href="/rentals">Cancel</a>
+</div>
+
+<script src="/javascripts/bootstrapValidation.js"></script>
