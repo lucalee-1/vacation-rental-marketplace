@@ -1,26 +1,41 @@
 <% layout('layouts/boilerplate') %>
-<h1>Log In</h1>
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Enter username:</label>
-    <input
-      type="text"
-      name="username"
-      id="username"
-      placeholder="username"
-      required
-    />
+
+<div class="container d-flex justify-content-center align-items-center mt-2 mb-4">
+  <div class="row">
+      <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+          <div class="card shadow">
+              <img src="https://images.unsplash.com/photo-1506798274179-6c3cd6a3cbc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                  alt="" class="card-img-top" />
+              <div class="card-body">
+                  <h2 class="mt-2 card-title text-center">Login</h2>
+                  <form action="/login" method="POST" class="needs-validation" novalidate>
+                      <div class="col-9 mx-auto">
+                          <label class="form-label" for="username"></label>
+                          <input class="form-control" type="text" id="username" name="username" placeholder="Username" autofocus required>
+                          <div class="invalid-feedback">
+                            Username is required.
+                          </div>
+                      </div>
+
+                      <div class="mb-4 col-9 mx-auto">
+                          <label class="form-label" for="password"></label>
+                          <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+                          <div class="invalid-feedback">
+                            Password is required.
+                          </div>
+                      </div>
+                      <div class="mb-3 d-grid gap-2 col-9 mx-auto">
+                      <button class="btn btn-outline-info">Login</button>
+
+                      </div>
+                  </form>
+                </div>
+                </div>
+
+              </div>
+          </div>
+      </div>
   </div>
-  <div>
-    <label for="password">Enter password:</label>
-    <input
-      type="password"
-      name="password"
-      id="password"
-      placeholder="password"
-      required
-    />
-  </div>
-  <button>Log In</button>
-</form>
-<a href="/rentals">Cancel</a>
+</div>
+
+<script src="/javascripts/bootstrapValidation.js"></script>

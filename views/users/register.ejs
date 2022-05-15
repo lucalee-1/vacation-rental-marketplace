@@ -1,28 +1,47 @@
 <% layout('layouts/boilerplate') %>
-<h1>Register Here</h1>
-<form action="/register" method="POST">
-  <div>
-    <label for="username">Enter username:</label>
-    <input
-      type="text"
-      name="username"
-      id="username"
-      placeholder="username"
-      required
-    />
-    <label for="email">Enter email:</label>
-    <input type="email" name="email" id="email" placeholder="email" required />
+
+<div class="container d-flex justify-content-center align-items-center mt-2 mb-4">
+  <div class="row">
+      <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+          <div class="card shadow">
+              <img src="https://images.unsplash.com/photo-1506798274179-6c3cd6a3cbc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                  alt="" class="card-img-top" />
+              <div class="card-body">
+                  <h2 class="card-title text-center">Register</h2>
+                  <form form action="/register" method="POST" class="needs-validation" novalidate>
+                      <div class="col-9 mx-auto">
+                          <label class="form-label" for="username"></label>
+                          <input class="form-control" type="text" id="username" name="username" placeholder="Username" autofocus required>
+                          <div class="invalid-feedback">
+                            An username is required.
+                          </div>
+                      </div>
+                      <div class="col-9 mx-auto">
+                        <label class="form-label" for="email"></label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
+                        <div class="invalid-feedback">
+                          An email is required.
+                        </div>
+                    </div>
+                      <div class="mb-4 col-9 mx-auto">
+                          <label class="form-label" for="password"></label>
+                          <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+                          <div class="invalid-feedback">
+                            A password is required.
+                          </div>
+                      </div>
+                      <div class="mb-3 d-grid gap-2 col-9 mx-auto">
+                      <button class="btn btn-outline-info">Login</button>
+
+                      </div>
+                  </form>
+                </div>
+                </div>
+
+              </div>
+          </div>
+      </div>
   </div>
-  <div>
-    <label for="password">Enter password:</label>
-    <input
-      type="password"
-      name="password"
-      id="password"
-      placeholder="password"
-      required
-    />
-  </div>
-  <button>Register</button>
-  <a href="/rentals">Cancel</a>
-</form>
+</div>
+
+<script src="/javascripts/bootstrapValidation.js"></script>
