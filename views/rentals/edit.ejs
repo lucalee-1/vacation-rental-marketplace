@@ -1,7 +1,5 @@
 <% layout('layouts/boilerplate') %>
-
-<% layout('layouts/boilerplate') %>
-<div class="row">
+<div class="row mb-4">
   <h1 class="text-center">New Rental</h1>
 <div class="col-md-4 offset-md-4">
 <form class="needs-validation" action="/rentals/<%=rental._id%>?_method=PATCH" method="POST" enctype="multipart/form-data" novalidate>
@@ -26,10 +24,11 @@
       max="9999"
       value="<%=rental.price%>"
       required
-    />
+    />    
+    </div>
     <div class="invalid-feedback">
       Please provide a price higher than $10.
-    </div>
+  </div>
   </div>
   <div class="mb-3">
     <label for="location" class="form-label">Location</label>
@@ -50,20 +49,26 @@
     Please add a description.
   </div>
 </div> 
-<div class="mb-3">
-  <% rental.images.forEach(function(img, i) {  %>
-  <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
-  <div class="form-check-inline">
-      <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.fileName%>">
-  </div>
-  <label for="image-<%=i%>">Delete?</label>
-  <% })%>  
+<h5 class="mb-2">Delete Images</h5>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
+        <% rental.images.forEach((image, i) => { %>
+          <div class="col">
+            <div class="card">
+              <img class="card-img" src="<%= image.thumbnail %>" alt="">
+                <div class="card-img-overlay text-end pt-1 pe-2">
+                  <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
+                  <input class="form-check-input" type="checkbox" name="deleteImages[]" value="<%=image.fileName%>" id="image-<%=i%>">
+                </div>
+            </div>
+          </div>
+        <% }) %>
+    </div>
   <div class="mt-3">
 <button type="submit" class="btn btn-outline-info">Update Rental</button>
 </div>
 </form>
+<a class="btn btn-outline-danger btn-sm mt-2" href="/rentals/<%=rental._id%>">Go Back</a>
 </div>
-<a class="btn btn-outline-danger btn-sm" href="/rentals/<%=rental._id%>">Go Back</a>
 </div>
 
 <script src="/javascripts/bootstrapValidation.js"></script>
