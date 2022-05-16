@@ -33,12 +33,12 @@ const seedDB = async () => {
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, repellendus laborum accusamus et suscipit voluptatem tempore? Voluptatem quisquam, ab amet cumque, itaque officia incidunt earum qui temporibus labore nobis magni! Adipisci veniam aliquid recusandae itaque maiores? Nemo at distinctio id rem, maxime incidunt alias doloribus repudiandae sequi dolorem libero minima vero? Culpa, nulla. Suscipit, commodi ipsum quidem rerum fuga error.",
       images: [
         {
-          url: "https://source.unsplash.com/collection/10574893/480x480",
-          fileName: "vacantion-rental/sfewfwfefeefwfe",
+          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652430160/vacantion-rental/f2tyqfurlfxqdmimf3jo.jpg",
+          fileName: "vacantion-rental/f2tyqfurlfxqdmimf3jo",
         },
         {
-          url: "https://source.unsplash.com/collection/10574893/480x480",
-          fileName: "vacantion-rental/sfewfd3wfefeefwfe",
+          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652430160/vacantion-rental/f2tyqfurlfxqdmimf3jo.jpg",
+          fileName: "vacantion-rental/f2tyqfurlfxqdmimf3jo",
         },
       ],
       owner: "62711eb0c186d9c27a413308",
