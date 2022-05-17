@@ -1,22 +1,22 @@
 .text-truncate-container {
-    width: 250px;
+  width: 250px;
 }
 .text-truncate-container p {
-    -webkit-line-clamp: 3;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .col-special {
-    overflow: hidden;
-  }
+  overflow: hidden;
+}
 
 .no-bullets {
-    list-style-type: none;
-    padding: 0; 
-    margin: 0;
-  }
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
-  .brand-text {
-    font-family: "Righteous", sans-serif;
-  }
+.brand-text {
+  font-family: "Righteous", sans-serif;
+}

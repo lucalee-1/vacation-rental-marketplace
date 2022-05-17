@@ -18,7 +18,7 @@ ImageSchema.virtual("thumbnailBig").get(function () {
 });
 
 ImageSchema.virtual("detailsPage").get(function () {
-  return this.url.replace("/upload", "/upload/c_fill,h_480,w_480");
+  return this.url.replace("/upload", "/upload/c_fill,h_778,w_1152");
 });
 
 const RentalSchema = new Schema(

@@ -1,0 +1,192 @@
+body{
+
+  background-color: #eee;
+  font-family: "Poppins", sans-serif
+
+ }
+ 
+.card {
+  background-color: #fff;
+  padding: 14px;
+  border: none;
+}
+
+.demo {
+  width: 100%;
+}
+
+ul {
+  list-style: none outside none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+li {
+  display: block;
+  float: left;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.stars i {
+  color: #f6d151;
+}
+
+.stars span {
+  font-size: 13px;
+}
+
+hr {
+  color: #d4d4d4;
+}
+
+.badge {
+  padding: 5px !important;
+  padding-bottom: 6px !important;
+}
+
+.badge i {
+  font-size: 10px;
+}
+
+.profile-image {
+  width: 35px;
+}
+
+.comment-ratings i {
+  font-size: 13px;
+}
+
+.username {
+  font-size: 12px;
+}
+
+.comment-profile {
+  line-height: 17px;
+}
+
+.date span {
+  font-size: 12px;
+}
+
+.p-ratings i {
+  color: #f6d151;
+  font-size: 12px;
+}
+
+.btn-long {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+/* 
+.buttons .btn {
+  height: 46px;
+} */
+
+.contact {
+  border-color: #0dcaf0;
+  color: #0dcaf0;
+}
+
+.contact:hover {
+  background-color: #0dcaf0 !important;
+  color: #fff;
+}
+
+.buttons .reserve {
+  color: #fff;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+}
+
+.buttons .reserve:focus,
+.reserve:active {
+  color: #fff;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  box-shadow: none;
+}
+
+.buttons .reserve:hover {
+  color: #fff;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+}
+
+.buttons .wishlist {
+  background-color: #fff;
+  border-color: #ff7676;
+}
+
+.buttons .wishlist:hover {
+  background-color: #e86464;
+  border-color: #e86464;
+  color: #fff;
+}
+
+.buttons .wishlist:hover i {
+  color: #fff;
+}
+
+.buttons .wishlist i {
+  color: #ff7676;
+}
+
+.comment-ratings i {
+  color: #f6d151;
+}
+
+.numOfProperties {
+  font-size: 9px;
+  color: #d6d4d4;
+}
+
+.store-image {
+  width: 42px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.bullet-text {
+  font-size: 12px;
+}
+
+.my-color {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  padding: 0.3rem 0.3rem 0.2rem;
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.brand-text {
+  font-family: "Righteous", sans-serif;
+}

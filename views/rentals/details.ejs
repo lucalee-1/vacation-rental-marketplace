@@ -1,71 +1,164 @@
-<% layout('layouts/boilerplate') %>
+<% layout('layouts/boilerplateDetails') %>
+<div class="container-fluid my-4 mb-3">
+  <div class="row no-gutters justify-content-center">
+    <div class="col-md-5 col-lg-4">
+      <div class="card">
+        <div class="demo">
+          <ul id="lightSlider">
+            <% for(let img of rental.images) { %>
+            <li data-thumb="<%=img.thumbnail%>">
+              <img src="<%=img.detailsPage%>" />
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+      <div class="card mt-2">
+        <div class="about">
+          <h3 class="mt-2 text-center fw-bold fs-1"><%= rental.title %></h3>
+          <p class="text-center mb-0">$<%= rental.price %>/night</p>
+        </div>
+        <div class="buttons text-center">
+          <button class="btn btn-outline-warning contact">Contact Host</button>
+          <button class="btn btn-warning btn-long reserve">Reserve</button>
+          <%#
+          <button class="btn btn-light wishlist">
+            <i class="fa fa-heart"></i>
+          </button>
+          %>
+        </div>
+        <hr class="my-3" />
 
+        <% let tomorrowDate = new Date(new Date().setDate(new Date().getDate() +
+        1));%>
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <div class="product-description">
+              <div
+                class="d-flex flex-row align-items-center justify-content-center mb-4"
+              >
+                <i class="fa fa-calendar-check-o"></i>
+                <span class="ms-1 text-muted"
+                  >Available from <%= tomorrowDate.toLocaleDateString("en-US",
+                  {dateStyle: "medium"}) %>
+                </span>
+              </div>
 
-<style type="text/css">
-    textarea {
-      vertical-align: top;
-    }
-  </style>
+              <span class="fw-bold">Description</span>
+              <p><%=rental.description%></p>
+              <div class="bullets">
+                <div class="d-flex align-items-center">
+                  <span class="dot"></span>
+                  <span class="bullet-text">Fast Wifi</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <span class="dot"></span>
+                  <span class="bullet-text">Streaming Enabled TV</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <span class="dot"></span>
+                  <span class="bullet-text">Room Climate Control</span>
+                </div>
+              </div>
+              <div class="mt-4 mb-1">
+                <span class="fw-bold">Host</span>
+              </div>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fa-regular fa-circle-user fa-xl"></i>
+                <div class="d-flex flex-column ms-1 comment-profile">
+                  <span class="username"><%= rental.owner.username %> </span>
+                  <%#<small class="numOfProperties">No of properties</small>%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-2" id="map">
+        <div id="map" style="width: 400px; height: 300px"></div>
+      </div>
+    </div>
+    <div class="col-md-5 col-lg-4 mt-2 mt-md-0 ps-md-0">
+      <div class="card px-4 py-4">
+        <span class="fw-bold mb-1">Reviews</span>
+        <div class="d-flex flex-row">
+          <span class="ms-1 fw-bold"> 4.6 </span>
+        </div>
+        <hr />
+        <div class="comment-section">
+          <div class="">
+            <% if(rental.reviews.length === 0) {%>
+            <p class="text-muted">
+              There are no reviews for this property yet.
+            </p>
+            <% } %>
+            <ul class="list-group list-group-flush">
+              <% for(let review of rental.reviews) { %>
 
-<% for( let img of rental.images ) { %>
-    <img src="<%= img.detailsPage%> " alt="">
-<% } %>
-<h2><%= rental.title %></h2> 
-<h2><%= rental.location %></h2> 
-<h3>Hosted by: <%= rental.owner.username %></h2> 
-<h3><%= `$${rental.price}/night`%></p>
-<p><%= rental.description %></p>
-<div>
-    <a href="/rentals">Back To Index</a>
-</div>
-<% if (currentUser &&rental.owner.equals(currentUser._id)) { %>
- <div>
-    <a href="/rentals/<%=rental._id%>/edit"><button>Edit</button></a>
-    <form action="/rentals/<%=rental._id%>?_method=DELETE" method="POST">
-        <button>Delete</button>
-    </form>
-</div>
-<% } %>
-
-<div id='map' style='width: 400px; height: 300px;'></div>
-
-<h2><%=rental.title%> Reviews</h2>
-<% for(let review of rental.reviews) { %>
- <div>
-     <p><%=review.rating%></p>
-     <p><%=review.body%></p>
-     <p>By: <%=review.owner.username%></p>
-     <% if (currentUser &&review.owner.equals(currentUser._id)) { %>
-        <form action="/rentals/<%=rental._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
-            <button>Delete</button>
+              <li class="list-group-item text-muted no-bullets">
+                <%=review.owner.username%>
+              </li>
+              <li class="list-group-item text-truncate no-bullets mb-2">
+                <%=review.body%>
+                <span class style="float: right">
+                  <span>Rating:</span> <%=review.rating %>
+                </span>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <% if(currentUser){ %>
+      <div class="card mt-2 px-4 py-4">
+        <h2>Leave a Review</h2>
+        <form
+          action="/rentals/<%=rental._id%>/reviews"
+          method="POST"
+          class="needs-validation"
+          novalidate
+        >
+          <div class="mb-3">
+            <label class="form-label" for="rating">Rating</label>
+            <input
+              class="form-range"
+              type="range"
+              min="1.0"
+              max="5"
+              name="review[rating]"
+              id="rating"
+              value="5"
+              step="0.5"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output>5</output>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="body">Review Text</label>
+            <textarea
+              class="form-control"
+              name="review[body]"
+              id="body"
+              cols="30"
+              rows="3"
+              required
+            ></textarea>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">
+              Please write your review.
+            </div>
+          </div>
+          <button class="btn btn-outline-warning contact">Submit</button>
         </form>
-     <% } %>     
- </div>
-<% } %>
- 
-<% if (currentUser) { %>
-<h2>Leave a Review</h2>
-<div>
-<form action="/rentals/<%=rental._id%>/reviews" method="POST">
-    <div>
-        <label for="rating">Rating</label>
-        <input type="range" name="review[rating]" id="rating" value="5" min="0.5" max="5" step="0.5" oninput="this.nextElementSibling.value = this.value">
-        <output>5</output>
-
+      </div>
+      <% } %>
     </div>
-    <div>
-    <label for="body">Review</label>
-        <textarea name="review[body]" id="body" cols="30" rows="3" required></textarea>
-    </div>
-    <button>Submit Review</button>    
-</form>
+  </div>
 </div>
-<% } %> 
-<script>const mapToken = "<%-process.env.MAPBOX_TOKEN%>"
-const rental = <%-JSON.stringify(rental)%>
-</script>
 
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
-
-<script src="/javascripts/showPageMap.js"></script>
+<%# To do:
+-Delete review(s)
+-Delete rental if owner
+-Edit rental if owner
+-Star rating system
+%> 
