@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplateDetails') %>
-<div class="container-fluid my-4 mb-3">
+<div class="container-fluid my-4 mb-3 px-4 px-md-2">
   <div class="row no-gutters justify-content-center">
     <div class="col-md-5 col-lg-4 pe-md-2">
       <div class="card">
@@ -85,11 +85,11 @@
         </div>
       </div>
       <div class="card mt-2" id="map">
-        <div id="map" style="width: 400px; height: 300px"></div>
+        <div id="map"></div>
       </div>
     </div>
 
-    <div class="col-md-5 col-lg-4 mt-2 mt-md-0 ps-md-0">
+    <div class="col-md-4 col-lg-3 mt-2 mt-md-0 ps-md-0">
       <div class="card px-5 pt-5 pb-4">
         <span class="fw-bold mb-1">Reviews</span>       
         <hr />
@@ -134,29 +134,25 @@
           class="needs-validation"
           novalidate
         >
-          <div class="mt-2">
-            <label class="form-label" for="rating">Rating</label>
-            <input
-              class="form-range"
-              type="range"
-              min="1.0"
-              max="5"
-              name="review[rating]"
-              id="rating"
-              value="5"
-              step="1"
-            />
-          </div>
-          <div class="rating-wrapper mb-3">
-            <span class="red">1&#9733</span>
-            <span class="orange">2&#9733</span>
-            <span class="yellow">3&#9733</span>
-            <span class="yellow-green">4&#9733</span>
-            <span class="green">5&#9733</span>
-
+        <div class="star-container">
+          <div class="star-widget my-3">
+            <input type="radio" name="review[rating]" id="rate-5" value="5" required>
+            <label for="rate-5" class="fas fa-star"></label>   
+            <input type="radio" name="review[rating]" id="rate-4" value="4">
+            <label for="rate-4" class="fas fa-star"></label>
+            <input type="radio" name="review[rating]" id="rate-3" value="3">
+            <label for="rate-3" class="fas fa-star"></label>
+            <input type="radio" name="review[rating]" id="rate-2" value="2">
+            <label for="rate-2" class="fas fa-star"></label>
+            <input type="radio" name="review[rating]" id="rate-1" value="1">
+            <label for="rate-1" class="fas fa-star"></label>   
+            <div class="invalid-feedback">
+              Please choose a rating.
+            </div>               
+            </div>          
           </div>
           <div class="mb-3">
-            <label class="form-label" for="body">Review Text</label>
+            <label class="form-label" for="body">Review</label>
             <textarea
               class="form-control"
               name="review[body]"
@@ -173,15 +169,52 @@
           <button class="btn btn-outline-info contact">Submit</button>
         </form>
       </div>
-      <% } %>
+      <% } else { %>
+      <div class="card mt-2 px-5 py-5">
+        <div class="card-body">
+         <span class="mb-1 fw-bold">Login to Write a Review</span>
+          <form action="/loginRefresh" method="POST" class="needs-validation" novalidate>
+            <div class=>
+              <label class="form-label" for="username"></label>
+                  <input class="form-control" type="text" id="username" name="username" placeholder="Username" autofocus required>
+                  <div class="invalid-feedback">
+                    Username is required.
+                  </div>
+              </div>    
+              <div class="">
+                  <label class="form-label" for="password"></label>
+                  <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+                  <div class="invalid-feedback">
+                    Password is required.
+                  </div>
+              </div>
+              <div class="mt-4 mb-0 d-grid col-9 mx-auto">
+              <button class="btn btn-outline-info">Login</button>
+    
+              </div>
+          </form>
+        </div>
+        </div>
+    
+      </div>
+              
+
+      <% } %> 
     </div>
   </div>
 </div>
 
+
+
+
+<script>$('.rating input').change(function () {
+  var $radio = $(this);
+  $('.rating .selected').removeClass('selected');
+  $radio.closest('label').addClass('selected');
+});</script>
+
 <%# To do:
--Delete review(s)
--Delete rental if owner
--Edit rental if owner
+
 -Star rating system
 -Sign in form below reviews if logged out / maps over reviews
 %> 

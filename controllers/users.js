@@ -36,6 +36,11 @@ module.exports.loginRedirect = (req, res) => {
   res.redirect(redirectUrl);
 };
 
+module.exports.loginRefresh = (req, res) => {
+  req.flash("success", `Welcome back, ${req.body.username}!`);
+  res.redirect("back");
+};
+
 module.exports.logout = (req, res) => {
   req.logout();
   req.flash("success", "Logged Out.");

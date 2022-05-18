@@ -6,6 +6,8 @@ const map = new mapboxgl.Map({
   zoom: 9, // starting zoom
 });
 
+map.addControl(new mapboxgl.NavigationControl());
+
 const marker = new mapboxgl.Marker({ color: "red" })
   .setLngLat(rental.geometry.coordinates)
   .setPopup(

@@ -20,6 +20,15 @@ router
     users.loginRedirect
   );
 
+router.post(
+  "/loginRefresh",
+  passport.authenticate("local", {
+    failureFlash: true,
+    failureRedirect: "/login",
+  }),
+  users.loginRefresh
+);
+
 router.post("/logout", users.logout);
 
 module.exports = router;
