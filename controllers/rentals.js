@@ -73,7 +73,7 @@ module.exports.updateRental = async (req, res) => {
   const { id } = req.params;
   console.log(req.body);
   const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
-  const imgs = req.files.map((f) => ({ url: f.path, filename: f.filename }));
+  const imgs = req.files.map((f) => ({ url: f.path, fileName: f.filename }));
   rental.images.push(...imgs);
   rental.save();
   if (req.body.deleteImages) {

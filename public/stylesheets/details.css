@@ -220,16 +220,24 @@ hr {
   
 }
 
+.btn-danger {
+  background-color: #ff7676;
+  border-color: #ff7676;
+}
+
 .btn-discreet {
   font-size: 0.8em;
   padding: 2px;
   position: float;
   margin: 0px;
-  background-color: #ff7676;
-  border-color: #ff7676;
+  
 }
 
-.btn-discreet:hover {
+.btn-danger:hover {
   background-color: #fe4646;
   border-color: #fe4646;
+}
+
+.btn-outline-warning:hover {
+  color: #fff;
 }

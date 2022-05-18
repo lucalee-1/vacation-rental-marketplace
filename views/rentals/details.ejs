@@ -15,10 +15,19 @@
       </div>
       <div class="card mt-2">
         <div class="about">
-          <h3 class="mt-2 text-center fw-bold fs-1"><%= rental.title %></h3>
+          <h3 class="mt-2 mb-0 text-center fw-bold fs-1"><%= rental.title %></h3>
+          <p class="text-center mt-0 mb-3 fs-5"><%= rental.location %></p>
           <p class="text-center mb-0">$<%= rental.price %>/night</p>
         </div>
-        <div class="buttons text-center">
+        <%  if( currentUser && rental.owner.equals(currentUser._id))  {%>
+          <div class="text-center mt-2">
+              <a class="btn btn-outline-warning" href="/rentals/<%=rental._id%>/edit">Edit</a>
+              <form class="d-inline" action="/rentals/<%=rental._id%>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger">Delete</button>
+              </form>
+          </div>
+          <% }else{ %>
+        <div class="buttons text-center mt-2">
           <button class="btn btn-outline-info contact">Contact Host</button>
           <button class="btn btn-info btn-long reserve">Reserve</button>
           <%#
@@ -27,6 +36,7 @@
           </button>
           %>
         </div>
+        <% } %> 
         <hr class="my-3" />
 
         <% let tomorrowDate = new Date(new Date().setDate(new Date().getDate() +
