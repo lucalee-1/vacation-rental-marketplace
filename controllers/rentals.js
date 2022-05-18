@@ -40,7 +40,6 @@ module.exports.addNewRental = async (req, res) => {
   }
   rental.owner = req.user._id;
   await rental.save();
-  console.log(rental);
   req.flash("success", "New vacation rental added!");
   res.redirect(`/rentals/${rental._id}`);
 };
@@ -71,10 +70,13 @@ module.exports.renderUpdateForm = async (req, res) => {
 
 module.exports.updateRental = async (req, res) => {
   const { id } = req.params;
-  console.log(req.body);
   const rental = await Rental.findByIdAndUpdate(id, { ...req.body.rental });
   const imgs = req.files.map((f) => ({ url: f.path, fileName: f.filename }));
   rental.images.push(...imgs);
+  const geoData = await geocoder
+    .forwardGeocode({ query: req.body.rental.location, limit: 1 })
+    .send();
+  rental.geometry = geoData.body.features[0].geometry;
   rental.save();
   if (req.body.deleteImages) {
     for (let fileName of req.body.deleteImages) {
