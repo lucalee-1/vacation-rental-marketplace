@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplateDetails') %>
 <div class="container-fluid my-4 mb-3">
   <div class="row no-gutters justify-content-center">
-    <div class="col-md-5 col-lg-4">
+    <div class="col-md-5 col-lg-4 pe-md-2">
       <div class="card">
         <div class="demo">
           <ul id="lightSlider">
@@ -19,8 +19,8 @@
           <p class="text-center mb-0">$<%= rental.price %>/night</p>
         </div>
         <div class="buttons text-center">
-          <button class="btn btn-outline-warning contact">Contact Host</button>
-          <button class="btn btn-warning btn-long reserve">Reserve</button>
+          <button class="btn btn-outline-info contact">Contact Host</button>
+          <button class="btn btn-info btn-long reserve">Reserve</button>
           <%#
           <button class="btn btn-light wishlist">
             <i class="fa fa-heart"></i>
@@ -45,7 +45,7 @@
               </div>
 
               <span class="fw-bold">Description</span>
-              <p><%=rental.description%></p>
+              <p class="mt-2"><%=rental.description%></p>
               <div class="bullets">
                 <div class="d-flex align-items-center">
                   <span class="dot"></span>
@@ -78,12 +78,10 @@
         <div id="map" style="width: 400px; height: 300px"></div>
       </div>
     </div>
+
     <div class="col-md-5 col-lg-4 mt-2 mt-md-0 ps-md-0">
-      <div class="card px-4 py-4">
-        <span class="fw-bold mb-1">Reviews</span>
-        <div class="d-flex flex-row">
-          <span class="ms-1 fw-bold"> 4.6 </span>
-        </div>
+      <div class="card px-5 pt-5 pb-4">
+        <span class="fw-bold mb-1">Reviews</span>       
         <hr />
         <div class="comment-section">
           <div class="">
@@ -92,33 +90,41 @@
               There are no reviews for this property yet.
             </p>
             <% } %>
-            <ul class="list-group list-group-flush">
               <% for(let review of rental.reviews) { %>
-
-              <li class="list-group-item text-muted no-bullets">
-                <%=review.owner.username%>
-              </li>
-              <li class="list-group-item text-truncate no-bullets mb-2">
+              <div class="card-nopadding text-truncate mb-4">
+                  <div class='stars-wrapper'>
+                    <% for( let i = 0; i < review?.rating; i++ ) { %>
+                        <div class='star-filled'>&#9733;</div>
+                    <% } %>
+                    <% for( let i = 0; i < 5 - review?.rating; i++ ) { %>
+                        <div class='star-empty'>&#9734;</div>
+                    <% } %>
+                </div>
                 <%=review.body%>
-                <span class style="float: right">
-                  <span>Rating:</span> <%=review.rating %>
-                </span>
-              </li>
+                <%  if( currentUser && review.owner.equals(currentUser._id))  {%>
+                  <form action="/rentals/<%=rental._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger btn-discreet">Delete</button>
+                  </form>
+                  <% } %>
+                <div class="text-muted">
+                  <small>-by <%=review.owner.username%></small>
+                </div>
+              </div>
               <% } %>
             </ul>
           </div>
         </div>
       </div>
       <% if(currentUser){ %>
-      <div class="card mt-2 px-4 py-4">
-        <h2>Leave a Review</h2>
+      <div class="card mt-2 px-5 py-5">
+        <span class="fw-bold">Leave a Review</span>
         <form
           action="/rentals/<%=rental._id%>/reviews"
           method="POST"
           class="needs-validation"
           novalidate
         >
-          <div class="mb-3">
+          <div class="mt-2">
             <label class="form-label" for="rating">Rating</label>
             <input
               class="form-range"
@@ -128,10 +134,16 @@
               name="review[rating]"
               id="rating"
               value="5"
-              step="0.5"
-              oninput="this.nextElementSibling.value = this.value"
+              step="1"
             />
-            <output>5</output>
+          </div>
+          <div class="rating-wrapper mb-3">
+            <span class="red">1&#9733</span>
+            <span class="orange">2&#9733</span>
+            <span class="yellow">3&#9733</span>
+            <span class="yellow-green">4&#9733</span>
+            <span class="green">5&#9733</span>
+
           </div>
           <div class="mb-3">
             <label class="form-label" for="body">Review Text</label>
@@ -148,7 +160,7 @@
               Please write your review.
             </div>
           </div>
-          <button class="btn btn-outline-warning contact">Submit</button>
+          <button class="btn btn-outline-info contact">Submit</button>
         </form>
       </div>
       <% } %>
@@ -161,4 +173,5 @@
 -Delete rental if owner
 -Edit rental if owner
 -Star rating system
+-Sign in form below reviews if logged out / maps over reviews
 %> 

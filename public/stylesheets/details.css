@@ -11,6 +11,16 @@ body{
   border: none;
 }
 
+.card-nopadding {
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+}
+
+.background-grey {
+  background-color: #eee;
+}
+
 .demo {
   width: 100%;
 }
@@ -88,40 +98,19 @@ hr {
 .buttons {
   margin-top: 15px;
 }
-/* 
+
 .buttons .btn {
   height: 46px;
-} */
-
-.contact {
-  border-color: #0dcaf0;
-  color: #0dcaf0;
 }
 
-.contact:hover {
-  background-color: #0dcaf0 !important;
+.contact:hover {  
   color: #fff;
 }
 
 .buttons .reserve {
-  color: #fff;
-  background-color: #0dcaf0;
-  border-color: #0dcaf0;
+  color: #fff; 
 }
 
-.buttons .reserve:focus,
-.reserve:active {
-  color: #fff;
-  background-color: #0dcaf0;
-  border-color: #0dcaf0;
-  box-shadow: none;
-}
-
-.buttons .reserve:hover {
-  color: #fff;
-  background-color: #0dcaf0;
-  border-color: #0dcaf0;
-}
 
 .buttons .wishlist {
   background-color: #fff;
@@ -189,4 +178,58 @@ hr {
 
 .brand-text {
   font-family: "Righteous", sans-serif;
+}
+
+.stars-wrapper {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.star-filled, .star-empty {
+  color: #f7c348;
+}
+
+.rating-wrapper {
+  display: flex;
+  gap: 19.7%;
+}
+
+.red {
+  color: red;
+  
+}
+
+.orange {
+  color: rgb(255, 168, 7);
+  
+}
+
+
+.yellow {
+  color: #f7c348;
+  
+}
+
+
+.yellow-green {
+  color: rgb(164, 221, 50);
+}
+
+.green {
+  color: rgb(7, 191, 7);
+  
+}
+
+.btn-discreet {
+  font-size: 0.8em;
+  padding: 2px;
+  position: float;
+  margin: 0px;
+  background-color: #ff7676;
+  border-color: #ff7676;
+}
+
+.btn-discreet:hover {
+  background-color: #fe4646;
+  border-color: #fe4646;
 }

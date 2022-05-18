@@ -55,7 +55,7 @@ module.exports.showRentalDetails = async (req, res) => {
   }
   res.render("rentals/details", {
     rental,
-    title: `Vacation Rental: ${rental.title}`,
+    title: `Vacation Place: ${rental.title}`,
   });
 };
 

@@ -20,3 +20,7 @@
 .brand-text {
   font-family: "Righteous", sans-serif;
 }
+
+.btn-outline-info:hover {
+  color: #fff;
+}
