@@ -1,5 +1,5 @@
-if(process.env.NODE_ENV !=="production") {
-  require('dotenv').config()
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
 
 const express = require("express");
@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("passport-local");
+const mongoSanitize = require("express-mongo-sanitize");
 const ExpressError = require("./helpers/ExpressError");
 const methodOverride = require("method-override");
 
