@@ -9,7 +9,7 @@ const { isLoggedIn, isOwner, validateRental } = require("../middleware");
 
 router
   .route("/")
-  .get(catchAsync(rentals.index))
+  .get(catchAsync(rentals.browse))
   .post(
     isLoggedIn,
     upload.array("image"),

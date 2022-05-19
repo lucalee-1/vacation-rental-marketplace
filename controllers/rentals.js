@@ -6,17 +6,17 @@ const { cloudinary } = require("../cloudinary");
 
 // To do:
 // Add image validation,
-// Add location validation, add geometry updating when editing location
+// Add location validation
 // Add autocomplete location when adding new
-// Add default image, when no image
 
-module.exports.index = async (req, res) => {
+
+module.exports.browse = async (req, res) => {
   const rentals = await Rental.find({});
-  res.render("rentals/allRentals", { rentals, title: "All Rentals" });
+  res.render("rentals/browse", { rentals, title: "Vacation Place: Browse" });
 };
 
 module.exports.renderAddNewForm = (req, res) => {
-  res.render("rentals/addNew", { title: "New Property" });
+  res.render("rentals/addNew", { title: "Vacation Place: New Property" });
 };
 
 module.exports.addNewRental = async (req, res) => {
@@ -65,7 +65,7 @@ module.exports.renderUpdateForm = async (req, res) => {
     req.flash("error", "Vacation rental not found");
     return res.redirect("/rentals");
   }
-  res.render("rentals/edit", { rental, title: "Edit Property" });
+  res.render("rentals/edit", { rental, title: "Vacation Place: Edit Property" });
 };
 
 module.exports.updateRental = async (req, res) => {

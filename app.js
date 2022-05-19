@@ -12,8 +12,9 @@ const passport = require("passport");
 const passportLocal = require("passport-local");
 const mongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
-const ExpressError = require("./helpers/ExpressError");
+const MongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
+const ExpressError = require("./helpers/ExpressError");
 
 const User = require("./models/user");
 
@@ -21,7 +22,9 @@ const rentalRoutes = require("./routes/rentals");
 const reviewRoutes = require("./routes/reviews");
 const userRoutes = require("./routes/users");
 
-mongoose.connect("mongodb://localhost:27017/vacation-rental");
+// const dbUrl = process.env.DB_URL
+const dbUrl = "mongodb://localhost:27017/vacation-rental";
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error"));
@@ -44,7 +47,19 @@ app.use(
   })
 );
 
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  touchAfter: 24 * 60 * 60,
+  crypto: {
+    secret: "temporarysecret"
+  },
+});
+
+store.on("error", function (e) {
+  console.log("Session Store Error", e);
+});
 const sessionConfig = {
+  store,
   name: "session",
   secret: "temporarysecret",
   resave: false,
@@ -86,7 +101,7 @@ const connectSrcUrls = [
 ];
 const fontSrcUrls = [
   "https://ka-f.fontawesome.com/",
-  "https://fonts.gstatic.com/"
+  "https://fonts.gstatic.com/",
 ];
 
 app.use(

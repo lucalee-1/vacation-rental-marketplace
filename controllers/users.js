@@ -13,7 +13,7 @@ module.exports.registerNewUser = async (req, res, next) => {
       if (err) return next(err);
       req.flash(
         "success",
-        `Welcome to Vacation Rental Marketplace, ${user.username}!`
+        `Welcome to Vacation Place, ${user.username}!`
       );
       const redirectUrl = req.session.returnTo || "/rentals";
       delete req.session.returnTo;
@@ -43,6 +43,6 @@ module.exports.loginRefresh = (req, res) => {
 
 module.exports.logout = (req, res) => {
   req.logout();
-  req.flash("success", "Logged Out.");
+  req.flash("success", "You have logged out.");
   res.redirect("/rentals");
 };

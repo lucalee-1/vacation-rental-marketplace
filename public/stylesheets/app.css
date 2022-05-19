@@ -3,6 +3,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.card {  
+  border: none;
+}
+
 .text-truncate-container {
   width: 250px;
 }

@@ -21,8 +21,8 @@ const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const seedDB = async () => {
   await Rental.deleteMany({});
   for (let i = 0; i <= 100; i++) {
-    // 600 cities in the cities.js array
-    const randomCity = Math.floor(Math.random() * 600);
+    // 525 cities in the cities.js array
+    const randomCity = Math.floor(Math.random() * 525);
     const randomPrice = Math.floor(Math.random() * 120) + 10;
     const rental = new Rental({
       title: `${sample(descriptors)} ${sample(rentalType)}`,

@@ -525,20 +525,7 @@ module.exports = [
       "capital": "admin",
       "population": 9729000,
       "id": 1156117184
-    },
-    {
-      "city": "Handan",
-      "city_ascii": "Handan",
-      "lat": 36.6116,
-      "lng": 114.4894,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hebei",
-      "capital": "minor",
-      "population": 9549700,
-      "id": 1156957080
-    },
+    },   
     {
       "city": "Nagoya",
       "city_ascii": "Nagoya",
@@ -551,20 +538,7 @@ module.exports = [
       "capital": "admin",
       "population": 9522000,
       "id": 1392407472
-    },
-    {
-      "city": "Weifang",
-      "city_ascii": "Weifang",
-      "lat": 36.7167,
-      "lng": 119.1,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shandong",
-      "capital": "",
-      "population": 9373000,
-      "id": 1156912965
-    },
+    },    
     {
       "city": "Lima",
       "city_ascii": "Lima",
@@ -603,33 +577,7 @@ module.exports = [
       "capital": "primary",
       "population": 8883000,
       "id": 1024949724
-    },
-    {
-      "city": "Ganzhou",
-      "city_ascii": "Ganzhou",
-      "lat": 25.8292,
-      "lng": 114.9336,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangxi",
-      "capital": "minor",
-      "population": 8677600,
-      "id": 1156832475
-    },
-    {
-      "city": "Tongshan",
-      "city_ascii": "Tongshan",
-      "lat": 34.261,
-      "lng": 117.1859,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangsu",
-      "capital": "minor",
-      "population": 8669000,
-      "id": 1156241678
-    },
+    },  
     {
       "city": "Kuala Lumpur",
       "city_ascii": "Kuala Lumpur",
@@ -668,20 +616,7 @@ module.exports = [
       "capital": "primary",
       "population": 8246600,
       "id": 1704413791
-    },
-    {
-      "city": "Fuyang",
-      "city_ascii": "Fuyang",
-      "lat": 32.8986,
-      "lng": 115.8045,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Anhui",
-      "capital": "",
-      "population": 8200264,
-      "id": 1156248008
-    },   
+    },       
     {
       "city": "Pune",
       "city_ascii": "Pune",
@@ -694,20 +629,7 @@ module.exports = [
       "capital": "",
       "population": 7948000,
       "id": 1356081074
-    },
-    {
-      "city": "Foshan",
-      "city_ascii": "Foshan",
-      "lat": 23.0292,
-      "lng": 113.1056,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guangdong",
-      "capital": "minor",
-      "population": 7905700,
-      "id": 1156738403
-    },
+    },    
     {
       "city": "Bogotá",
       "city_ascii": "Bogota",
@@ -746,20 +668,7 @@ module.exports = [
       "capital": "admin",
       "population": 7729000,
       "id": 1156644065
-    },   
-    {
-      "city": "Cangzhou",
-      "city_ascii": "Cangzhou",
-      "lat": 38.3037,
-      "lng": 116.8452,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hebei",
-      "capital": "",
-      "population": 7544300,
-      "id": 1156698069
-    },
+    },       
     {
       "city": "Dar es Salaam",
       "city_ascii": "Dar es Salaam",
@@ -915,20 +824,7 @@ module.exports = [
       "capital": "primary",
       "population": 6107000,
       "id": 1368596238
-    },
-    {
-      "city": "Xinyang",
-      "city_ascii": "Xinyang",
-      "lat": 32.1264,
-      "lng": 114.0672,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Henan",
-      "capital": "",
-      "population": 6109106,
-      "id": 1156273453
-    },    
+    },       
     {
       "city": "Khartoum",
       "city_ascii": "Khartoum",
@@ -967,20 +863,7 @@ module.exports = [
       "capital": "",
       "population": 5954391,
       "id": 1356718332
-    }, 
-    {
-      "city": "Liaocheng",
-      "city_ascii": "Liaocheng",
-      "lat": 36.45,
-      "lng": 115.9833,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shandong",
-      "capital": "minor",
-      "population": 5789863,
-      "id": 1156006600
-    },
+    },     
     {
       "city": "Qingdao",
       "city_ascii": "Qingdao",
@@ -1058,20 +941,7 @@ module.exports = [
       "capital": "admin",
       "population": 5545500,
       "id": 1156198892
-    }, 
-    {
-      "city": "Dazhou",
-      "city_ascii": "Dazhou",
-      "lat": 31.2152,
-      "lng": 107.4947,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Sichuan",
-      "capital": "minor",
-      "population": 5468097,
-      "id": 1156834076
-    },
+    },    
     {
       "city": "Houston",
       "city_ascii": "Houston",
@@ -1149,20 +1019,7 @@ module.exports = [
       "capital": "admin",
       "population": 5429524,
       "id": 1124279679
-    },
-    {
-      "city": "Suihua",
-      "city_ascii": "Suihua",
-      "lat": 46.6384,
-      "lng": 126.9808,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Heilongjiang",
-      "capital": "minor",
-      "population": 5418153,
-      "id": 1156235493
-    },
+    },    
     {
       "city": "Saint Petersburg",
       "city_ascii": "Saint Petersburg",
@@ -1279,20 +1136,7 @@ module.exports = [
       "capital": "",
       "population": 4875000,
       "id": 1356758738
-    },
-    {
-      "city": "Guiyang",
-      "city_ascii": "Guiyang",
-      "lat": 26.5794,
-      "lng": 106.7078,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guizhou",
-      "capital": "admin",
-      "population": 4881900,
-      "id": 1156932620
-    },
+    },   
     {
       "city": "Alexandria",
       "city_ascii": "Alexandria",
@@ -1305,19 +1149,6 @@ module.exports = [
       "capital": "admin",
       "population": 4870000,
       "id": 1818695837
-    },
-    {
-      "city": "Bozhou",
-      "city_ascii": "Bozhou",
-      "lat": 33.8626,
-      "lng": 115.7742,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Anhui",
-      "capital": "",
-      "population": 4850657,
-      "id": 1156356860
     },
     {
       "city": "Sydney",
@@ -1344,33 +1175,7 @@ module.exports = [
       "capital": "admin",
       "population": 4735000,
       "id": 1724594040
-    },
-    {
-      "city": "Anqing",
-      "city_ascii": "Anqing",
-      "lat": 30.5,
-      "lng": 117.0333,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Anhui",
-      "capital": "minor",
-      "population": 4723000,
-      "id": 1156238875
-    },
-    {
-      "city": "Suqian",
-      "city_ascii": "Suqian",
-      "lat": 33.9331,
-      "lng": 118.2831,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangsu",
-      "capital": "",
-      "population": 4719178,
-      "id": 1156212349
-    },
+    },   
     {
       "city": "Boston",
       "city_ascii": "Boston",
@@ -1474,33 +1279,7 @@ module.exports = [
       "capital": "admin",
       "population": 4370000,
       "id": 1504175315
-    },   
-    {
-      "city": "Linfen",
-      "city_ascii": "Linfen",
-      "lat": 36.0812,
-      "lng": 111.5087,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shanxi",
-      "capital": "",
-      "population": 4316610,
-      "id": 1156416074
-    },
-    {
-      "city": "Jiangguanchi",
-      "city_ascii": "Jiangguanchi",
-      "lat": 34.0244,
-      "lng": 113.8201,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Henan",
-      "capital": "minor",
-      "population": 4307488,
-      "id": 1156235735
-    },
+    },       
     {
       "city": "Kabul",
       "city_ascii": "Kabul",
@@ -1526,33 +1305,7 @@ module.exports = [
       "capital": "admin",
       "population": 4219697,
       "id": 1840020568
-    },
-    {
-      "city": "Luzhou",
-      "city_ascii": "Luzhou",
-      "lat": 28.8918,
-      "lng": 105.4409,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Sichuan",
-      "capital": "minor",
-      "population": 4218427,
-      "id": 1156582079
-    },    
-    {
-      "city": "Xiaoxita",
-      "city_ascii": "Xiaoxita",
-      "lat": 30.7083,
-      "lng": 111.2803,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hubei",
-      "capital": "minor",
-      "population": 4137900,
-      "id": 1156764447
-    },
+    },   
     {
       "city": "Xiamen",
       "city_ascii": "Xiamen",
@@ -1565,20 +1318,7 @@ module.exports = [
       "capital": "minor",
       "population": 4110000,
       "id": 1156212809
-    },
-    {
-      "city": "Fuzhou",
-      "city_ascii": "Fuzhou",
-      "lat": 27.9814,
-      "lng": 116.3577,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangxi",
-      "capital": "",
-      "population": 4047200,
-      "id": 1156915325
-    },   
+    },    
     {
       "city": "Amman",
       "city_ascii": "Amman",
@@ -1604,59 +1344,7 @@ module.exports = [
       "capital": "",
       "population": 3976000,
       "id": 1682926944
-    },
-    {
-      "city": "Chuzhou",
-      "city_ascii": "Chuzhou",
-      "lat": 32.3062,
-      "lng": 118.3115,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Anhui",
-      "capital": "",
-      "population": 3937868,
-      "id": 1156036420
-    },
-    {
-      "city": "Loudi",
-      "city_ascii": "Loudi",
-      "lat": 27.7378,
-      "lng": 111.9974,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hunan",
-      "capital": "",
-      "population": 3931800,
-      "id": 1156010654
-    },
-    {
-      "city": "Deyang",
-      "city_ascii": "Deyang",
-      "lat": 31.1289,
-      "lng": 104.395,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Sichuan",
-      "capital": "minor",
-      "population": 3877000,
-      "id": 1156127147
-    },
-    {
-      "city": "Qingyuan",
-      "city_ascii": "Qingyuan",
-      "lat": 23.6842,
-      "lng": 113.0507,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guangdong",
-      "capital": "minor",
-      "population": 3874000,
-      "id": 1156135890
-    },
+    },   
     {
       "city": "Kano",
       "city_ascii": "Kano",
@@ -1708,71 +1396,6 @@ module.exports = [
       "capital": "admin",
       "population": 3757630,
       "id": 1392118339
-    },
-    {
-      "city": "Binzhou",
-      "city_ascii": "Binzhou",
-      "lat": 37.3806,
-      "lng": 118.0125,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shandong",
-      "capital": "",
-      "population": 3748474,
-      "id": 1156564962
-    },
-    {
-      "city": "Baojishi",
-      "city_ascii": "Baojishi",
-      "lat": 34.3609,
-      "lng": 107.1751,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shaanxi",
-      "capital": "",
-      "population": 3738700,
-      "id": 1156101096
-    },
-    {
-      "city": "Zaozhuang",
-      "city_ascii": "Zaozhuang",
-      "lat": 34.8667,
-      "lng": 117.55,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shandong",
-      "capital": "",
-      "population": 3729140,
-      "id": 1156796454
-    },
-    {
-      "city": "Neijiang",
-      "city_ascii": "Neijiang",
-      "lat": 29.5872,
-      "lng": 105.0635,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Sichuan",
-      "capital": "minor",
-      "population": 3702847,
-      "id": 1156516335
-    },
-    {
-      "city": "Baicheng",
-      "city_ascii": "Baicheng",
-      "lat": 23.901,
-      "lng": 106.6194,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guangxi",
-      "capital": "minor",
-      "population": 3669400,
-      "id": 1156981113
     },
     {
       "city": "Berlin",
@@ -2488,20 +2111,7 @@ module.exports = [
       "capital": "admin",
       "population": 2360241,
       "id": 1036192929
-    },
-    {
-      "city": "Anshun",
-      "city_ascii": "Anshun",
-      "lat": 26.2456,
-      "lng": 105.934,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guizhou",
-      "capital": "",
-      "population": 2353100,
-      "id": 1156415948
-    },
+    },  
     {
       "city": "Depok",
       "city_ascii": "Depok",
@@ -2592,20 +2202,7 @@ module.exports = [
       "capital": "",
       "population": 2230722,
       "id": 1840034002
-    },
-    {
-      "city": "Qinbaling",
-      "city_ascii": "Qinbaling",
-      "lat": 35.7278,
-      "lng": 107.64,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Gansu",
-      "capital": "",
-      "population": 2211191,
-      "id": 1156032582
-    },
+    },   
     {
       "city": "Xining",
       "city_ascii": "Xining",
@@ -2618,33 +2215,7 @@ module.exports = [
       "capital": "admin",
       "population": 2208708,
       "id": 1156081448
-    },
-    {
-      "city": "Ma’anshan",
-      "city_ascii": "Ma'anshan",
-      "lat": 31.6858,
-      "lng": 118.5101,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Anhui",
-      "capital": "minor",
-      "population": 2202899,
-      "id": 1156847452
-    },
-    {
-      "city": "Yan’an",
-      "city_ascii": "Yan'an",
-      "lat": 36.5952,
-      "lng": 109.4863,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shaanxi",
-      "capital": "",
-      "population": 2187009,
-      "id": 1156546342
-    },
+    },    
     {
       "city": "Baku",
       "city_ascii": "Baku",
@@ -2813,20 +2384,7 @@ module.exports = [
       "capital": "",
       "population": 2104198,
       "id": 1840020364
-    },
-    {
-      "city": "Chongzuo",
-      "city_ascii": "Chongzuo",
-      "lat": 22.4167,
-      "lng": 107.3667,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guangxi",
-      "capital": "minor",
-      "population": 2099400,
-      "id": 1156438670
-    },
+    },  
     {
       "city": "Rawalpindi",
       "city_ascii": "Rawalpindi",
@@ -2878,33 +2436,7 @@ module.exports = [
       "capital": "",
       "population": 2065771,
       "id": 1356705249
-    },
-    {
-      "city": "Hezhou",
-      "city_ascii": "Hezhou",
-      "lat": 24.4164,
-      "lng": 111.5478,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guangxi",
-      "capital": "minor",
-      "population": 2072600,
-      "id": 1156459799
-    },
-    {
-      "city": "Pingliang",
-      "city_ascii": "Pingliang",
-      "lat": 35.5412,
-      "lng": 106.6819,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Gansu",
-      "capital": "minor",
-      "population": 2068033,
-      "id": 1156216904
-    },
+    }, 
     {
       "city": "San Antonio",
       "city_ascii": "San Antonio",
@@ -2969,33 +2501,7 @@ module.exports = [
       "capital": "minor",
       "population": 2027001,
       "id": 1586400472
-    },
-    {
-      "city": "Baicheng",
-      "city_ascii": "Baicheng",
-      "lat": 45.6148,
-      "lng": 122.832,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jilin",
-      "capital": "minor",
-      "population": 2032356,
-      "id": 1156435764
-    },
-    {
-      "city": "Fushun",
-      "city_ascii": "Fushun",
-      "lat": 41.8708,
-      "lng": 123.8917,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Liaoning",
-      "capital": "",
-      "population": 2024000,
-      "id": 1156857743
-    },
+    },   
     {
       "city": "St. Louis",
       "city_ascii": "St. Louis",
@@ -3307,20 +2813,7 @@ module.exports = [
       "capital": "minor",
       "population": 1871843,
       "id": 1586256291
-    },
-    {
-      "city": "Xiping",
-      "city_ascii": "Xiping",
-      "lat": 40.082,
-      "lng": 113.2981,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shanxi",
-      "capital": "minor",
-      "population": 1873000,
-      "id": 1156898522
-    },
+    },    
     {
       "city": "Ecatepec",
       "city_ascii": "Ecatepec",
@@ -3411,33 +2904,7 @@ module.exports = [
       "capital": "",
       "population": 1822394,
       "id": 1840015099
-    },
-    {
-      "city": "Fuxin",
-      "city_ascii": "Fuxin",
-      "lat": 42.0127,
-      "lng": 121.6486,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Liaoning",
-      "capital": "",
-      "population": 1819339,
-      "id": 1156141954
-    },
-    {
-      "city": "Wuwei",
-      "city_ascii": "Wuwei",
-      "lat": 37.9278,
-      "lng": 102.6329,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Gansu",
-      "capital": "minor",
-      "population": 1815059,
-      "id": 1156760291
-    },
+    },    
     {
       "city": "Manaus",
       "city_ascii": "Manaus",
@@ -3541,20 +3008,7 @@ module.exports = [
       "capital": "primary",
       "population": 1754000,
       "id": 1760685964
-    },
-    {
-      "city": "Shuyangzha",
-      "city_ascii": "Shuyangzha",
-      "lat": 34.1299,
-      "lng": 118.7734,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangsu",
-      "capital": "",
-      "population": 1770000,
-      "id": 1156051957
-    },
+    },  
     {
       "city": "Brussels",
       "city_ascii": "Brussels",
@@ -3606,20 +3060,7 @@ module.exports = [
       "capital": "primary",
       "population": 1723836,
       "id": 1348611435
-    },
-    {
-      "city": "Shuozhou",
-      "city_ascii": "Shuozhou",
-      "lat": 39.3408,
-      "lng": 112.4292,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shanxi",
-      "capital": "minor",
-      "population": 1714857,
-      "id": 1156227167
-    },
+    },  
     {
       "city": "Cleveland",
       "city_ascii": "Cleveland",
@@ -3632,33 +3073,7 @@ module.exports = [
       "capital": "",
       "population": 1710093,
       "id": 1840000596
-    },
-    {
-      "city": "Benxi",
-      "city_ascii": "Benxi",
-      "lat": 41.292,
-      "lng": 123.761,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Liaoning",
-      "capital": "",
-      "population": 1709538,
-      "id": 1156097909
-    },
-    {
-      "city": "Baiyin",
-      "city_ascii": "Baiyin",
-      "lat": 36.5448,
-      "lng": 104.1766,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Gansu",
-      "capital": "minor",
-      "population": 1708751,
-      "id": 1156140738
-    },
+    },    
     {
       "city": "Pittsburgh",
       "city_ascii": "Pittsburgh",
@@ -3723,19 +3138,6 @@ module.exports = [
       "capital": "admin",
       "population": 1687311,
       "id": 1840019590
-    },
-    {
-      "city": "Sanzhou",
-      "city_ascii": "Sanzhou",
-      "lat": 30.82,
-      "lng": 108.4,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Chongqing",
-      "capital": "",
-      "population": 1680000,
-      "id": 1156025536
     },
     {
       "city": "Beihai",
@@ -3892,20 +3294,7 @@ module.exports = [
       "capital": "admin",
       "population": 1621384,
       "id": 1360745537
-    },
-    {
-      "city": "Ludhiāna",
-      "city_ascii": "Ludhiana",
-      "lat": 30.9083,
-      "lng": 75.8486,
-      "country": "India",
-      "iso2": "IN",
-      "iso3": "IND",
-      "admin_name": "Punjab",
-      "capital": "",
-      "population": 1618879,
-      "id": 1356929498
-    },
+    },    
     {
       "city": "Novosibirsk",
       "city_ascii": "Novosibirsk",
@@ -4659,20 +4048,7 @@ module.exports = [
       "capital": "primary",
       "population": 1319108,
       "id": 1858107000
-    },
-    {
-      "city": "Xintai",
-      "city_ascii": "Xintai",
-      "lat": 35.91,
-      "lng": 117.78,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shandong",
-      "capital": "",
-      "population": 1315942,
-      "id": 1156761230
-    },
+    },   
     {
       "city": "Wusong",
       "city_ascii": "Wusong",
@@ -4698,20 +4074,7 @@ module.exports = [
       "capital": "",
       "population": 1305429,
       "id": 1356390476
-    },
-    {
-      "city": "Yushu",
-      "city_ascii": "Yushu",
-      "lat": 44.8249,
-      "lng": 126.5451,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jilin",
-      "capital": "",
-      "population": 1304436,
-      "id": 1156326773
-    },
+    },    
     {
       "city": "Rongcheng",
       "city_ascii": "Rongcheng",
@@ -4724,33 +4087,7 @@ module.exports = [
       "capital": "",
       "population": 1302891,
       "id": 1156122888
-    },
-    {
-      "city": "Huazhou",
-      "city_ascii": "Huazhou",
-      "lat": 21.654,
-      "lng": 110.6294,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guangdong",
-      "capital": "",
-      "population": 1302100,
-      "id": 1156282637
-    },
-    {
-      "city": "Yangquan",
-      "city_ascii": "Yangquan",
-      "lat": 37.8576,
-      "lng": 113.5762,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shanxi",
-      "capital": "minor",
-      "population": 1300000,
-      "id": 1156157844
-    },
+    },   
     {
       "city": "Adelaide",
       "city_ascii": "Adelaide",
@@ -4763,59 +4100,7 @@ module.exports = [
       "capital": "admin",
       "population": 1295714,
       "id": 1036538171
-    },
-    {
-      "city": "Baishan",
-      "city_ascii": "Baishan",
-      "lat": 41.9377,
-      "lng": 126.4179,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jilin",
-      "capital": "minor",
-      "population": 1296127,
-      "id": 1156960624
-    },
-    {
-      "city": "Dayan",
-      "city_ascii": "Dayan",
-      "lat": 26.8808,
-      "lng": 100.2208,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Yunnan",
-      "capital": "",
-      "population": 1296000,
-      "id": 1156828380
-    },
-    {
-      "city": "Haicheng",
-      "city_ascii": "Haicheng",
-      "lat": 40.8523,
-      "lng": 122.7474,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Liaoning",
-      "capital": "minor",
-      "population": 1293877,
-      "id": 1156052713
-    },
-    {
-      "city": "Jiangyin",
-      "city_ascii": "Jiangyin",
-      "lat": 31.9087,
-      "lng": 120.2653,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangsu",
-      "capital": "",
-      "population": 1285785,
-      "id": 1156033234
-    },  
+    },    
     {
       "city": "Cacuaco",
       "city_ascii": "Cacuaco",
@@ -4906,33 +4191,7 @@ module.exports = [
       "capital": "admin",
       "population": 1264075,
       "id": 1643012126
-    },
-    {
-      "city": "Shaoyang",
-      "city_ascii": "Shaoyang",
-      "lat": 32.9387,
-      "lng": 119.8404,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangsu",
-      "capital": "minor",
-      "population": 1253548,
-      "id": 1156668366
-    },
-    {
-      "city": "Dhanbād",
-      "city_ascii": "Dhanbad",
-      "lat": 23.7928,
-      "lng": 86.435,
-      "country": "India",
-      "iso2": "IN",
-      "iso3": "IND",
-      "admin_name": "Jharkhand",
-      "capital": "",
-      "population": 1246000,
-      "id": 1356103392
-    },
+    },  
     {
       "city": "Comayagüela",
       "city_ascii": "Comayaguela",
@@ -4971,20 +4230,7 @@ module.exports = [
       "capital": "admin",
       "population": 1247749,
       "id": 1784152993
-    },
-    {
-      "city": "Jingling",
-      "city_ascii": "Jingling",
-      "lat": 30.6667,
-      "lng": 113.1667,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hubei",
-      "capital": "",
-      "population": 1247400,
-      "id": 1156060544
-    },
+    },    
     {
       "city": "Kazan",
       "city_ascii": "Kazan",
@@ -5010,20 +4256,7 @@ module.exports = [
       "capital": "admin",
       "population": 1234300,
       "id": 1410679777
-    },
-    {
-      "city": "Yongcheng",
-      "city_ascii": "Yongcheng",
-      "lat": 33.9317,
-      "lng": 116.4459,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Henan",
-      "capital": "",
-      "population": 1240382,
-      "id": 1156841802
-    },
+    },    
     {
       "city": "Calgary",
       "city_ascii": "Calgary",
@@ -5127,20 +4360,7 @@ module.exports = [
       "capital": "admin",
       "population": 1203230,
       "id": 1840003289
-    },
-    {
-      "city": "Vārānasi",
-      "city_ascii": "Varanasi",
-      "lat": 25.3189,
-      "lng": 83.0128,
-      "country": "India",
-      "iso2": "IN",
-      "iso3": "IND",
-      "admin_name": "Uttar Pradesh",
-      "capital": "",
-      "population": 1198491,
-      "id": 1356145782
-    },
+    }, 
     {
       "city": "Qom",
       "city_ascii": "Qom",
@@ -5296,20 +4516,7 @@ module.exports = [
       "capital": "admin",
       "population": 1180770,
       "id": 1682345785
-    },
-    {
-      "city": "Srīnagar",
-      "city_ascii": "Srinagar",
-      "lat": 34.0911,
-      "lng": 74.8061,
-      "country": "India",
-      "iso2": "IN",
-      "iso3": "IND",
-      "admin_name": "Jammu and Kashmīr",
-      "capital": "admin",
-      "population": 1180570,
-      "id": 1356442950
-    },
+    },    
     {
       "city": "Omsk",
       "city_ascii": "Omsk",
@@ -5452,20 +4659,7 @@ module.exports = [
       "capital": "minor",
       "population": 1162928,
       "id": 1156490109
-    },
-    {
-      "city": "Dakar",
-      "city_ascii": "Dakar",
-      "lat": 14.7319,
-      "lng": -17.4572,
-      "country": "Senegal",
-      "iso2": "SN",
-      "iso3": "SEN",
-      "admin_name": "Dakar",
-      "capital": "primary",
-      "population": 1146053,
-      "id": 1686604760
-    },    
+    },  
     {
       "city": "Nay Pyi Taw",
       "city_ascii": "Nay Pyi Taw",
@@ -5556,20 +4750,7 @@ module.exports = [
       "capital": "",
       "population": 1131160,
       "id": 1356076391
-    },
-    {
-      "city": "Yingchuan",
-      "city_ascii": "Yingchuan",
-      "lat": 34.1511,
-      "lng": 113.4733,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Henan",
-      "capital": "minor",
-      "population": 1131896,
-      "id": 1156748426
-    },
+    },   
     {
       "city": "Ciudad Nezahualcóyotl",
       "city_ascii": "Ciudad Nezahualcoyotl",
@@ -5816,33 +4997,7 @@ module.exports = [
       "capital": "minor",
       "population": 1077208,
       "id": 1484074285
-    },
-    {
-      "city": "Hanchuan",
-      "city_ascii": "Hanchuan",
-      "lat": 30.652,
-      "lng": 113.8274,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hubei",
-      "capital": "",
-      "population": 1092700,
-      "id": 1156149248
-    },
-    {
-      "city": "Gongzhuling",
-      "city_ascii": "Gongzhuling",
-      "lat": 43.5036,
-      "lng": 124.8088,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jilin",
-      "capital": "",
-      "population": 1092692,
-      "id": 1156696810
-    },
+    },    
     {
       "city": "Krasnoyarsk",
       "city_ascii": "Krasnoyarsk",
@@ -6024,20 +5179,7 @@ module.exports = [
       "capital": "admin",
       "population": 1073824,
       "id": 1340568412
-    },
-    {
-      "city": "Taixing",
-      "city_ascii": "Taixing",
-      "lat": 32.1724,
-      "lng": 120.0142,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Jiangsu",
-      "capital": "minor",
-      "population": 1073921,
-      "id": 1156331200
-    },
+    },   
     {
       "city": "Gwalior",
       "city_ascii": "Gwalior",
@@ -6258,20 +5400,7 @@ module.exports = [
       "capital": "minor",
       "population": 1046000,
       "id": 1156956616
-    },
-    {
-      "city": "Shouguang",
-      "city_ascii": "Shouguang",
-      "lat": 36.8833,
-      "lng": 118.7333,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Shandong",
-      "capital": "",
-      "population": 1039205,
-      "id": 1156787809
-    },
+    },   
     {
       "city": "Bogor",
       "city_ascii": "Bogor",
@@ -6466,33 +5595,7 @@ module.exports = [
       "capital": "primary",
       "population": 1021762,
       "id": 1430477826
-    },
-    {
-      "city": "Wafangdian",
-      "city_ascii": "Wafangdian",
-      "lat": 39.6271,
-      "lng": 121.9972,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Liaoning",
-      "capital": "",
-      "population": 1024876,
-      "id": 1156476417
-    },
-    {
-      "city": "Zhongxiang",
-      "city_ascii": "Zhongxiang",
-      "lat": 31.169,
-      "lng": 112.5853,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hubei",
-      "capital": "",
-      "population": 1022514,
-      "id": 1156631720
-    },
+    }, 
     {
       "city": "Odesa",
       "city_ascii": "Odesa",
@@ -6648,85 +5751,7 @@ module.exports = [
       "capital": "admin",
       "population": 1005904,
       "id": 1566070649
-    },
-    {
-      "city": "Louisville",
-      "city_ascii": "Louisville",
-      "lat": 38.1663,
-      "lng": -85.6485,
-      "country": "United States",
-      "iso2": "US",
-      "iso3": "USA",
-      "admin_name": "Kentucky",
-      "capital": "",
-      "population": 1005654,
-      "id": 1840030815
-    },
-    {
-      "city": "Zaoyang",
-      "city_ascii": "Zaoyang",
-      "lat": 32.1287,
-      "lng": 112.7581,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Hubei",
-      "capital": "",
-      "population": 1004741,
-      "id": 1156197076
-    },
-    {
-      "city": "Shuizhai",
-      "city_ascii": "Shuizhai",
-      "lat": 33.4433,
-      "lng": 114.8994,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Henan",
-      "capital": "",
-      "population": 1003698,
-      "id": 1156462734
-    },
-    {
-      "city": "Xingyi",
-      "city_ascii": "Xingyi",
-      "lat": 25.091,
-      "lng": 104.9011,
-      "country": "China",
-      "iso2": "CN",
-      "iso3": "CHN",
-      "admin_name": "Guizhou",
-      "capital": "",
-      "population": 1004132,
-      "id": 1156255316
-    },
-    {
-      "city": "Kota",
-      "city_ascii": "Kota",
-      "lat": 25.18,
-      "lng": 75.83,
-      "country": "India",
-      "iso2": "IN",
-      "iso3": "IND",
-      "admin_name": "Rājasthān",
-      "capital": "",
-      "population": 1001694,
-      "id": 1356820310
-    },
-    {
-      "city": "Quetta",
-      "city_ascii": "Quetta",
-      "lat": 30.192,
-      "lng": 67.007,
-      "country": "Pakistan",
-      "iso2": "PK",
-      "iso3": "PAK",
-      "admin_name": "Balochistān",
-      "capital": "admin",
-      "population": 1001205,
-      "id": 1586556108
-    },
+    },    
     {
       "city": "Ottawa",
       "city_ascii": "Ottawa",
