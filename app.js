@@ -37,13 +37,18 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(mongoSanitize({
+  replaceWith: '_'
+}))
 
 const sessionConfig = {
+  name: "session",
   secret: "temporarysecret",
   resave: false,
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
+    // secure: true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
@@ -83,6 +88,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err, title: "Error" });
 });
 
-app.listen(8000, () => {
-  console.log("Connected to port 8000");
+app.listen(3000, () => {
+  console.log("Connected to port 3000");
 });

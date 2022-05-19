@@ -128,6 +128,7 @@
       <% if(currentUser){ %>
       <div class="card mt-2 px-5 py-5">
         <span class="fw-bold">Leave a Review</span>
+        <hr />
         <form
           action="/rentals/<%=rental._id%>/reviews"
           method="POST"
@@ -135,7 +136,7 @@
           novalidate
         >
         <div class="star-container">
-          <div class="star-widget my-3">
+          <div class="star-widget mb-2 mt-1">
             <input type="radio" name="review[rating]" id="rate-5" value="5" required>
             <label for="rate-5" class="fas fa-star"></label>   
             <input type="radio" name="review[rating]" id="rate-4" value="4">
@@ -172,8 +173,10 @@
       <% } else { %>
       <div class="card mt-2 px-5 py-5">
         <div class="card-body">
-         <span class="mb-1 fw-bold">Login to Write a Review</span>
+         <span class="fw-bold">Login to Review</span>
+         <hr />
           <form action="/loginRefresh" method="POST" class="needs-validation" novalidate>
+            <div class="px-5 px-md-3">
             <div class=>
               <label class="form-label" for="username"></label>
                   <input class="form-control" type="text" id="username" name="username" placeholder="Username" autofocus required>
@@ -191,6 +194,7 @@
               <div class="mt-4 mb-0 d-grid col-9 mx-auto">
               <button class="btn btn-outline-info">Login</button>    
               </div>
+            </div>
           </form>
         </div>
         </div>    
