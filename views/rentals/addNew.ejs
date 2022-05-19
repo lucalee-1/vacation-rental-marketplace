@@ -1,61 +1,88 @@
 <% layout('layouts/boilerplate') %>
-<div class="row">
-  <h1 class="text-center">New Rental</h1>
-<div class="col-md-4 offset-md-4">
-<form class="needs-validation" action="/rentals" method="POST" enctype="multipart/form-data" novalidate>
-  <div class="mb-3 form-inline">
-    <label for="title" class="form-label">Title</label>
-    <input type="text" class="form-control" id="title" name="rental[title]" required/>
-    <div class="invalid-feedback">
-      Please add a title.
+<div class="container d-flex justify-content-center align-items-center my-2">
+  <div class="row">
+    <div class="card p-5">
+      <h2 class="text-center">New Rental</h2>
+      <form
+        class="needs-validation"
+        action="/rentals"
+        method="POST"
+        enctype="multipart/form-data"
+        novalidate
+      >
+        <div class="mb-3 form-inline">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="rental[title]"
+            required
+          />
+          <div class="invalid-feedback">Please add a title.</div>
+        </div>
+        <div class="mb-3 form-inline">
+          <label for="price" class="form-label">Price</label>
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              name="rental[price]"
+              placeholder="0.00"
+              min="10"
+              max="9999"
+              required
+            />
+            <div class="invalid-feedback">
+              Please provide a price higher than $10.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="rental[location]"
+            required
+          />
+          <div class="invalid-feedback">Please add a location.</div>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Add Image(s)</label>
+          <input
+            class="form-control"
+            type="file"
+            id="image"
+            name="image"
+            multiple
+            accept=".png, .jpg, .jpeg"
+            multiple
+          />
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="description">Description</label>
+          <textarea
+            class="form-control"
+            type="text"
+            id="description"
+            name="rental[description]"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please add a description.</div>
+        </div>
+        <div class="mt-4 d-grid gap-2 mx-auto">
+          <button type="submit" class="btn btn-outline-info text-center">
+            Submit
+          </button>
+          <a class="btn btn-outline-danger" href="/rentals">Cancel</a>
+        </div>
+      </form>
     </div>
-
   </div>
-  <div class="mb-3 form-inline">
-    <label for="price" class="form-label">Price</label>
-    <div class="input-group">
-    <span class="input-group-text">$</span>
-    <input
-      type="number"
-      class="form-control"
-      id="price"
-      name="rental[price]"
-      placeholder="0.00"
-      min="10"
-      max="9999"
-      required
-    />
-    <div class="invalid-feedback">
-      Please provide a price higher than $10.
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="location" class="form-label">Location</label>
-    <input type="text" class="form-control" id="location" name="rental[location]" required />
-    <div class="invalid-feedback">
-      Please add a location.
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="image" class="form-label">Add Image(s)</label>
-    <input class="form-control" type="file" id="image" name="image" multiple accept=".png, .jpg, .jpeg" multiple>
-  </div>
-  
-
- <div class="mb-4">
-  <label class="form-label" for="description">Description</label>
-  <textarea class="form-control" type="text" id="description" name="rental[description]"
-      required></textarea>  
-  <div class="invalid-feedback">
-    Please add a description.
-  </div>
-</div> 
-
-  <button type="submit" class="btn btn-outline-info">Submit</button>
-</form>
-
-</div>
-<a class="btn btn-outline-danger btn-sm" href="/rentals">Cancel</a>
 </div>
 
 <script src="/javascripts/bootstrapValidation.js"></script>

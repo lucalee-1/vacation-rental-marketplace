@@ -33,8 +33,8 @@ module.exports.addNewRental = async (req, res) => {
   } else {
     rental.images = [
       {
-        url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652430160/vacantion-rental/f2tyqfurlfxqdmimf3jo.jpg",
-        fileName: "vacantion-rental/f2tyqfurlfxqdmimf3jo",
+        url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652967347/vacation-place/toy-house2_phfv9h.jpg",
+        fileName: "vacantion-place/toy-house2_phfv9h",
       },
     ];
   }

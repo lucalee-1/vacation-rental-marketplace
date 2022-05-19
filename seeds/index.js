@@ -24,21 +24,29 @@ const seedDB = async () => {
     // 525 cities in the cities.js array
     const randomCity = Math.floor(Math.random() * 525);
     const randomPrice = Math.floor(Math.random() * 120) + 10;
+    const title = `${sample(descriptors)} ${sample(rentalType)}`
     const rental = new Rental({
-      title: `${sample(descriptors)} ${sample(rentalType)}`,
+      title,
       price: randomPrice,
       location: `${cities[randomCity].city}, ${cities[randomCity].country}`,
       geometry: { type: "Point", coordinates: [cities[randomCity].lng, cities[randomCity].lat] },
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, repellendus laborum accusamus et suscipit voluptatem tempore? Voluptatem quisquam, ab amet cumque, itaque officia incidunt earum qui temporibus labore nobis magni! Adipisci veniam aliquid recusandae itaque maiores? Nemo at distinctio id rem, maxime incidunt alias doloribus repudiandae sequi dolorem libero minima vero? Culpa, nulla. Suscipit, commodi ipsum quidem rerum fuga error.",
+      description: `This ${title} has everything you need for your ${cities[randomCity].city}, ${cities[randomCity].country} trip. The unit comes with Wi-Fi, TV and full climate control (AC + heating). During your stay, you can also enjoy using a convenient gym and pool. This ${title} offers complete privacy whilst still being conveniently close to everything you could ever need. It is within walking distance to several popular restaurants, shops, and beaches. An ideal base to relax and explore ${cities[randomCity].city}.`,
       images: [
         {
-          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652430160/vacantion-rental/f2tyqfurlfxqdmimf3jo.jpg",
-          fileName: "vacantion-rental/f2tyqfurlfxqdmimf3jo",
+          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652965964/vacation-place/hotel-pool_t5cozh.jpg",
+          fileName: "vacantion-place/hotel-pool_t5cozh",
         },
         {
-          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652430160/vacantion-rental/f2tyqfurlfxqdmimf3jo.jpg",
-          fileName: "vacantion-rental/f2tyqfurlfxqdmimf3jo",
+          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652965964/vacation-place/hotel-outside_i070hx.jpg",
+          fileName: "vacantion-place/hotel-outside_i070hx",
+        },
+        {
+          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652965964/vacation-place/hotel-bedroom_bckq7y.jpg",
+          fileName: "vacantion-place/hotel-bedroom_bckq7y",
+        },
+        {
+          url: "https://res.cloudinary.com/aefpxxc8p/image/upload/v1652965964/vacation-place/hotel-bathroom_gf5rvq.jpg",
+          fileName: "vacantion-place/hotel-bathroom_gf5rvq",
         },
       ],
       owner: "62711eb0c186d9c27a413308",
