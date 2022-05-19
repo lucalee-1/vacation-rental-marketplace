@@ -11,6 +11,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("passport-local");
 const mongoSanitize = require("express-mongo-sanitize");
+const helmet = require("helmet");
 const ExpressError = require("./helpers/ExpressError");
 const methodOverride = require("method-override");
 
@@ -37,9 +38,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(mongoSanitize({
-  replaceWith: '_'
-}))
+app.use(
+  mongoSanitize({
+    replaceWith: "_",
+  })
+);
 
 const sessionConfig = {
   name: "session",
@@ -54,8 +57,59 @@ const sessionConfig = {
   },
 };
 app.use(session(sessionConfig));
-
 app.use(flash());
+
+const scriptSrcUrls = [
+  "https://api.tiles.mapbox.com/",
+  "https://api.mapbox.com/",
+  "https://kit.fontawesome.com/173307bc3a.js",
+  "https://cdnjs.cloudflare.com/",
+  "https://cdn.jsdelivr.net",
+  "https://ajax.googleapis.com/",
+  "https://sachinchoolur.github.io/lightslider/dist/js/lightslider.js",
+];
+const styleSrcUrls = [
+  "https://kit-free.fontawesome.com/",
+  "https://stackpath.bootstrapcdn.com/",
+  "https://api.mapbox.com/",
+  "https://api.tiles.mapbox.com/",
+  "https://fonts.googleapis.com/",
+  "https://cdn.jsdelivr.net",
+  "https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css",
+];
+const connectSrcUrls = [
+  "https://api.mapbox.com/",
+  "https://a.tiles.mapbox.com/",
+  "https://b.tiles.mapbox.com/",
+  "https://events.mapbox.com/",
+  "https://ka-f.fontawesome.com/",
+];
+const fontSrcUrls = [
+  "https://ka-f.fontawesome.com/",
+  "https://fonts.gstatic.com/"
+];
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: [],
+      connectSrc: ["'self'", ...connectSrcUrls],
+      scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+      workerSrc: ["'self'", "blob:"],
+      objectSrc: [],
+      imgSrc: [
+        "'self'",
+        "blob:",
+        "data:",
+        "https://res.cloudinary.com/aefpxxc8p/",
+        "https://images.unsplash.com/",
+        "https://sachinchoolur.github.io/lightslider/dist/img/controls.png",
+      ],
+      fontSrc: ["'self'", ...fontSrcUrls],
+    },
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
