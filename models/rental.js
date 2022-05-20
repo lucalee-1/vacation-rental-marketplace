@@ -18,11 +18,11 @@ ImageSchema.virtual("thumbnailMini").get(function () {
 });
 
 ImageSchema.virtual("thumbnailBig").get(function () {
-  return this.url.replace("/upload", "/upload/c_fill,h_350,w_350");
+  return this.url.replace("/upload", "/upload/c_fill,h_500,w_500");
 });
 
 ImageSchema.virtual("detailsPage").get(function () {
-  return this.url.replace("/upload", "/upload/c_fill,h_778,w_1152");
+  return this.url.replace("/upload", "/upload/c_fill,h_856,w_1152");
 });
 
 const RentalSchema = new Schema(

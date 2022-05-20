@@ -3,13 +3,10 @@ const Rental = require("../models/rental");
 const Review = require("../models/review");
 const cities = require("./cities");
 const { descriptors, rentalType } = require("./seedTemplate");
+const dbUrl = ""
 
-mongoose.connect("mongodb://localhost:27017/vacation-rental"),
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  };
+mongoose.connect(dbUrl)
+  
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error"));
@@ -53,22 +50,22 @@ const seedDB = async () => {
           fileName: `vacantion-place/rentalseed-img_${randomImg3}`,
         },        
       ],
-      owner: "62711eb0c186d9c27a413308",
+      owner: "628743ead2db2857fca37f78",
     });
     const review1 = new Review({
       rating: 5,
       body: `We had an amazing time at ${title}. The communication was super easy and quick and the place looks exactly like it does on the pictures. Would absolutely recommend it!`,
-      owner: "62711eb0c186d9c27a413308",
+      owner: "628743ead2db2857fca37f78",
     });
     const review2 = new Review({
       rating: 4,
       body: `The bedroom and bathroom were clean and everything was in good condition. It is a rare gem that is both centrally located AND very quiet. However, there are no screens on the windows, and bugs kept flying inside. In the end, we just kept the windows closed and used the air-conditioner.`,
-      owner: "62711eb0c186d9c27a413308",
+      owner: "628743ead2db2857fca37f78",
     });
     const review3 = new Review({
       rating: 5,
       body: `Very tidy and lovely ${title} equipped with everything you need. It is beautifully furnished with particular attention to all the details for the best comfort. A good bed and nice bathroom. We had a great stay!`,
-      owner: "62711eb0c186d9c27a413308",
+      owner: "628743ead2db2857fca37f78",
     });
     rental.reviews.push(review1);
     rental.reviews.push(review2);
