@@ -35,7 +35,7 @@ const seedDB = async () => {
         type: "Point",
         coordinates: [cities[randomCity].lng, cities[randomCity].lat],
       },
-      description: `This ${title} has everything you need for your ${cities[randomCity].city}, ${cities[randomCity].country} trip. The unit comes with Wi-Fi, TV and full climate control (AC + heating). During your stay, you can also enjoy using a convenient gym and pool. This ${title} offers complete privacy whilst still being conveniently close to everything you could ever need. It is within walking distance to several popular restaurants, shops, and beaches. An ideal base to relax and explore ${cities[randomCity].city}.`,
+      description: `This ${title} has everything you need for your ${cities[randomCity].city}, ${cities[randomCity].country} trip. The unit comes with Wi-Fi, TV and full climate control (AC + heating). During your stay, you can also enjoy using a convenient gym and pool. This ${title} offers complete privacy whilst still being conveniently close to everything you could ever need. It is within walking distance to several popular restaurants, shops, and parks. An ideal base to relax and explore ${cities[randomCity].city}.`,
       images: [
         {
           url: `https://res.cloudinary.com/aefpxxc8p/image/upload/v1653019222/vacation-place/rentalseed-img_${randomImg1}.jpg`,
