@@ -13,8 +13,8 @@ ImageSchema.virtual("thumbnail").get(function () {
   return this.url.replace("/upload", "/upload/c_fill,h_200,w_200");
 });
 
-ImageSchema.virtual("thumbnailMini").get(function () {
-  return this.url.replace("/upload", "/upload/c_fill,h_100,w_100");
+ImageSchema.virtual("thumbnailMd").get(function () {
+  return this.url.replace("/upload", "/upload/c_fill,h_300,w_300");
 });
 
 ImageSchema.virtual("thumbnailBig").get(function () {
