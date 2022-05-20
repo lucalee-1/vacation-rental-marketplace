@@ -20,7 +20,7 @@ const {
   styleSrcUrls,
   connectSrcUrls,
   fontSrcUrls,
-} = require("/consec-policy");
+} = require("./consec-policy.js");
 
 const User = require("./models/user");
 
