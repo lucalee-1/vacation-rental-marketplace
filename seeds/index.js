@@ -19,7 +19,7 @@ const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const seedDB = async () => {
   await Rental.deleteMany({});
   await Review.deleteMany({});
-  for (let i = 0; i <= 100; i++) {
+  for (let i = 0; i <= 102; i++) {
     // 525 cities in the cities.js array
     const randomCity = Math.floor(Math.random() * 650);
     const randomPrice = Math.floor(Math.random() * 120) + 10;

@@ -69,7 +69,7 @@ const RentalSchema = new Schema(
 RentalSchema.virtual("properties.popUpMarkup").get(function () {
   return `<strong><a href="/rentals/${this._id}"><h5>${this.title}</h5></a></strong>
   <h6>${this.location}</h6>
-  <p>${this.description.substring(0,40)}...</p>`
+  <p>${this.description.substring(0,120)}...</p>`
 });
 
 RentalSchema.post("findOneAndDelete", async function (doc) {
