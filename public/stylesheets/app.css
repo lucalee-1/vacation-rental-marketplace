@@ -3,7 +3,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.card {  
+.card {
   border: none;
 }
 
@@ -37,4 +37,9 @@ body {
 #map {
   width: 100%;
   height: 500px;
+}
+
+.no-bg-no-border {
+  background-color: rgba(255, 255, 255, 0);
+  border-style: none;
 }

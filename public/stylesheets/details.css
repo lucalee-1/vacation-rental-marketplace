@@ -261,3 +261,7 @@ input:not(:checked) ~ label:hover ~ label {
 input:checked ~ label {
   color: #fd4;
 }
+.no-bg-no-border {
+  background-color: rgba(255, 255, 255, 0);
+  border-style: none;
+}

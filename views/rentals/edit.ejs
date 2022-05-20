@@ -1,8 +1,8 @@
 <% layout('layouts/boilerplate') %>
 <div class="container-fluid align-items-center my-2">
-  <div class="row no-gutters justify-content-center mb-4 p-5">
+  <div class="row no-gutters justify-content-center mb-4 p-sm-5">
     <div class="col-md-9 col-lg-6">
-    <div class="card p-5">
+    <div class="card p-4 p-sm-5">
       <h2 class="text-center">Edit <%=rental.title%> </h2>
         <form
           class="needs-validation"
@@ -86,7 +86,7 @@
             <% rental.images.forEach((image, i) => { %>
             <div class="col">
               <div class="card">
-                <img class="card-img" src="<%=image.thumbnail%>" alt="" />
+                <img class="card-img p-3 p-sm-0" src="<%=image.thumbnail%>" alt="" />
                 <div class="card-img-overlay text-end pt-1 pe-2">
                   <label class="visually-hidden" for="image-<%= i %>"
                     >Delete Image</label

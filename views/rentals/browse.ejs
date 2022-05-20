@@ -5,23 +5,23 @@
   <div class="row align-items-center justify-content-center">
     <% for (let rental of rentals) { %>
     <div class="col-sm-6 col-md-4 col-xl-3 mb-2 p-3">
-      <div class="card p-3">
+      <div class="card">
         <img
           src="<%=rental.images[0].thumbnailBig%>"
-          class="card-img-top"
+          class="card-img-top p-3"
           alt="..."
         />
-        <div class="card-body text-truncate text-center">
+        <div class="card-body text-truncate text-center p-2">
           <h5 class="card-title mb-1 text-truncate"><%=rental.title%></h5>
           <h6 class="card-subtitle mb-4 text-muted text-truncate">
             <%=rental.location%>
           </h6>
 
-          <p class="card-text mb-4 text-truncate"><%=rental.description%></p>
-          <p class="card-text mb-1 text-muted">From $<%=rental.price%>/night</p>
+          <p class="card-text mb-3 text-truncate"><%=rental.description%></p>
+          <p class="card-text mb-2 text-muted">From $<%=rental.price%>/night</p>
           <a
             href="/rentals/<%=rental._id %>"
-            class="btn btn-outline-info"
+            class="btn btn-outline-info mb-3"
             >See details</a
           >
         </div>
