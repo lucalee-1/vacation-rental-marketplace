@@ -47,7 +47,7 @@ mapboxgl.accessToken = mapToken
                     ['get', 'point_count'],
                     15,
                     10,
-                    20,
+                    25,
                     30,
                     25
                 ]

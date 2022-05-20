@@ -1,3 +1,4 @@
 node_modules/
 .env
 seeds/cities100kpop.js
+seeds/images
