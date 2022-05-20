@@ -2,22 +2,6 @@ var mq = window.matchMedia( "(min-width: 768px)" );
 
 mapboxgl.accessToken = mapToken;
 
-// if (mq.matches) {
-//     const map = new mapboxgl.Map({
-//       container: "map",
-//       style: "mapbox://styles/mapbox/light-v10",
-//       center: [9, 28],
-//       zoom: 1.5,
-//     });
-//   } else {
-//     const map = new mapboxgl.Map({
-//       container: "map",
-//       style: "mapbox://styles/mapbox/light-v10",
-//       center: [9, 28],
-//       zoom: 1,
-//     });
-//   }
-
 const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/light-v10",
