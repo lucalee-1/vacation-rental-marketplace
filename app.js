@@ -22,8 +22,7 @@ const rentalRoutes = require("./routes/rentals");
 const reviewRoutes = require("./routes/reviews");
 const userRoutes = require("./routes/users");
 
-// const dbUrl = process.env.DB_URL
-const dbUrl = "mongodb://localhost:27017/vacation-rental";
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/vacation-rental";
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
@@ -47,11 +46,12 @@ app.use(
   })
 );
 
+const secret = process.env.SECRET || "temporarysecret";
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   touchAfter: 24 * 60 * 60,
   crypto: {
-    secret: "temporarysecret"
+    secret,
   },
 });
 
@@ -61,7 +61,7 @@ store.on("error", function (e) {
 const sessionConfig = {
   store,
   name: "session",
-  secret: "temporarysecret",
+  secret,
   resave: false,
   saveUninitialized: true,
   cookie: {
